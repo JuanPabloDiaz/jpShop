@@ -43,9 +43,12 @@ const Home = () => {
         onChange={(event) => context.setSearchByTitle(event.target.value)}
       />
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-        {renderView()}
+        {/* {renderView()} */}
+        {context.filteredItems?.map((item) => (
+          <Card key={item.id} data={item} />
+        ))}
       </div>
-      <ProductDetail />
+      {/* <ProductDetail /> */}
     </Layout>
   );
 };

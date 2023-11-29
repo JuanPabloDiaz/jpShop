@@ -35,8 +35,8 @@ const App = () => {
     <AppProvider>
       <BrowserRouter>
         <AppRoutes />
-        <Navbar />
-        <CheckoutSideMenu />
+        {/* <Navbar /> */}
+        {/* <CheckoutSideMenu /> */}
       </BrowserRouter>
     </AppProvider>
   );
