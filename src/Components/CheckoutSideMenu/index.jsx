@@ -61,8 +61,8 @@ const CheckoutSideMenu = () => {
             key={product.id}
             id={product.id}
             title={product.title.split(" ").slice(0, 2).join(" ")}
-            // imageUrl={product.image} // Fake Store API
-            imageUrl={product.images} // Platzi API
+            imageUrl={product.image} // Fake Store API
+            // imageUrl={product.images} // Platzi API
             price={product.price}
             quantity={product.quantity}
             handleDeleteProduct={handleDeleteProduct}

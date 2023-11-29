@@ -31,8 +31,8 @@ const MyOrder = () => {
             key={product.id}
             id={product.id}
             title={product.title}
-            // imageUrl={product.image} // Fake Store API
-            imageUrl={product.images} // Platzi API
+            imageUrl={product.image} // Fake Store API
+            // imageUrl={product.images} // Platzi API
             price={product.price}
             quantity={product.quantity}
           />

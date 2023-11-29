@@ -32,8 +32,8 @@ export const AppProvider = ({ children }) => {
 
   // UseEffect is a hook to fetch the data from the API
   useEffect(() => {
-    // fetch("https://fakestoreapi.com/products") // Fake Store API
-    fetch("https://api.escuelajs.co/api/v1/products") // Platzi API
+    fetch("https://fakestoreapi.com/products") // Fake Store API
+      // fetch("https://api.escuelajs.co/api/v1/products") // Platzi API
       .then((response) => response.json())
       .then((json) => setItems(json));
   }, []);
