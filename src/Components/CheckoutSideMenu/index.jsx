@@ -5,6 +5,15 @@ import OrderCard from "../OrderCard";
 
 const CheckoutSideMenu = () => {
   const context = useContext(AppContext);
+
+  const handleDeleteProduct = (id) => {
+    const newCartProducts = context.cartProducts.filter(
+      (product) => product.id !== id
+    );
+    context.setCartProducts(newCartProducts);
+    context.setCart(context.cart - 1);
+  };
+
   return (
     <aside
       className={`${
@@ -17,13 +26,16 @@ const CheckoutSideMenu = () => {
           <HiOutlineX onClick={() => context.closeCheckoutSideMenu()} />
         </div>
       </div>
-      <div className="px-6">
+      <div className="px-6 overflow-y-scroll">
         {context.cartProducts.map((product) => (
           <OrderCard
             key={product.id}
+            id={product.id}
             title={product.title}
             imageUrl={product.images[0]}
             price={product.price}
+            quantity={product.quantity}
+            handleDeleteProduct={handleDeleteProduct}
           />
         ))}
       </div>
