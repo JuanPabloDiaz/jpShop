@@ -1,9 +1,4 @@
 const Card = (data) => {
-  {
-    console.log("Data: ", data.data);
-    console.log("Data.data: ", data.data);
-    console.log("id: ", data.data.id);
-  }
   return (
     <div className="bg-amber-600/80 cursor-pointer w-56 h-60 rounded-lg">
       <figure className="relative mb-2 w-full h-4/5">

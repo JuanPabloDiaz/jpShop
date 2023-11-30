@@ -19,34 +19,50 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/clothes"
+            to="/smartphones"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Clothes
+            Phones
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/electronics"
+            to="/laptops"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Electronics
+            Laptops
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/furnitures"
+            to="/fragrances"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Furnitures
+            Fragrances
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/toys"
+            to="/skincare"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Toys
+            Skin Care
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/groceries"
+            className={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Groceries
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/home-decoration"
+            className={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Home
           </NavLink>
         </li>
       </ul>
@@ -68,14 +84,14 @@ const Navbar = () => {
             My Account
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             to="/sign-in"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Sign In
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink
             to="/card"
