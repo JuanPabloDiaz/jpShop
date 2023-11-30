@@ -1,7 +1,12 @@
+import Card from "../../Components/Card";
 import Layout from "../../Components/Layout";
 
 const Home = () => {
-  return <Layout>Home</Layout>;
+  return (
+    <Layout>
+      <Card />
+    </Layout>
+  );
 };
 
 export default Home;
