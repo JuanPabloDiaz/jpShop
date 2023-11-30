@@ -1,9 +1,10 @@
-const Card = () => {
+const Card = (data) => {
   return (
     <div className="bg-amber-600/80 cursor-pointer w-56 h-60 rounded-lg">
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 bg-white/60 rounded-lg text-black text-xs m-2 py-0.5 px-2">
-          tag
+          {/* {console.log(data)}
+          {console.log("id: ", data.data.id)} */}
         </span>
         <img
           className="rounded-lg w-full h-full object-cover"
@@ -11,8 +12,7 @@ const Card = () => {
           alt="card image"
         />
         <div className="absolute top-0 right-0 flex justify-center items-center bg-white rounded-full w-6 h-6 m-2">
-          {" "}
-          +{" "}
+          +
         </div>
       </figure>
       <p className="flex justify-around">
