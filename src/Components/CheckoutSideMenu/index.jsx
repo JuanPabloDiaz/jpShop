@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { HiOutlineX } from "react-icons/hi";
 import { AppContext } from "../../Context";
 import OrderCard from "../OrderCard";
+import { totalPrice } from "../../Utils/index.js";
 
 const CheckoutSideMenu = () => {
   const context = useContext(AppContext);
@@ -38,6 +39,14 @@ const CheckoutSideMenu = () => {
             handleDeleteProduct={handleDeleteProduct}
           />
         ))}
+      </div>
+      <div className="p-6">
+        <p>
+          <span className="font-medium">Total</span>
+          <span className="font-medium">
+            ${totalPrice(context.cartProducts)}
+          </span>
+        </p>
       </div>
     </aside>
   );
