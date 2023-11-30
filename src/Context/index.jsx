@@ -3,13 +3,16 @@ import { createContext, useState } from "react";
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  // Hook to add the info from the API to the state:
+  // Shopping Cart · Increment quantity
   const [count, setCount] = useState(0);
-  // To inspect the value of count:  // console.log(count);
-  // Hook to open and close the product detail component:
+
+  // Product Detail · Open/Close
   const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
   const openProductDetail = () => setIsProductDetailOpen(true);
   const closeProductDetail = () => setIsProductDetailOpen(false);
+
+  // Product Detail · Show product
+  const [productToShow, setProductToShow] = useState({});
 
   return (
     <AppContext.Provider
@@ -19,6 +22,8 @@ export const AppProvider = ({ children }) => {
         openProductDetail,
         closeProductDetail,
         isProductDetailOpen,
+        productToShow,
+        setProductToShow,
       }}
     >
       {children}
