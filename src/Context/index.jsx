@@ -17,6 +17,11 @@ export const AppProvider = ({ children }) => {
   // Shopping Cart · add product to cart
   const [cartProducts, setCartProducts] = useState([]);
 
+  // Checkout Side Menu · Open/Close
+  const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false);
+  const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true);
+  const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
+
   return (
     <AppContext.Provider
       value={{
@@ -29,6 +34,9 @@ export const AppProvider = ({ children }) => {
         setProductToShow,
         cartProducts,
         setCartProducts,
+        isCheckoutSideMenuOpen,
+        openCheckoutSideMenu,
+        closeCheckoutSideMenu,
       }}
     >
       {children}

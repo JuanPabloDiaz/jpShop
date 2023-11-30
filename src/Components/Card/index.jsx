@@ -8,11 +8,16 @@ const Card = (data) => {
   const showProduct = (productDetail) => {
     context.openProductDetail();
     context.setProductToShow(productDetail);
+    context.closeCheckoutSideMenu();
   };
-  const addProductToCart = (productData) => {
+  const addProductToCart = (event, productData) => {
+    event.stopPropagation(); // Para que no se abra el modal de detalle de producto
+
     context.setCount(context.count + 1);
     context.setCartProducts([...context.cartProducts, productData]);
-    console.log(context.cartProducts);
+    // console.log(context.cartProducts);
+    context.openCheckoutSideMenu();
+    context.closeProductDetail();
   };
 
   return (
@@ -30,7 +35,7 @@ const Card = (data) => {
           alt={data.data.title}
         />
         <HiPlusSm
-          onClick={() => addProductToCart(data.data)}
+          onClick={(e) => addProductToCart(e, data.data)}
           className="absolute top-0 right-0 flex justify-center items-center bg-white rounded-full w-6 h-6 m-2"
         />
       </figure>
