@@ -3,6 +3,7 @@ import { HiOutlineX } from "react-icons/hi";
 import { AppContext } from "../../Context";
 import OrderCard from "../OrderCard";
 import { totalPrice } from "../../Utils/index.js";
+import { Link } from "react-router-dom";
 
 const CheckoutSideMenu = () => {
   const context = useContext(AppContext);
@@ -58,12 +59,14 @@ const CheckoutSideMenu = () => {
             ${totalPrice(context.cartProducts)}
           </span>
         </p>
-        <button
-          className="w-full bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300"
-          onClick={() => handleCheckout()}
-        >
-          Checkout
-        </button>
+        <Link to="/my-orders/last">
+          <button
+            className="w-full bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300"
+            onClick={() => handleCheckout()}
+          >
+            Checkout
+          </button>
+        </Link>
       </div>
     </aside>
   );

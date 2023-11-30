@@ -4,7 +4,15 @@ import { useContext } from "react";
 
 const OrderCard = (props) => {
   const { id, title, imageUrl, price, handleDeleteProduct } = props;
-
+  let renderTrash;
+  if (handleDeleteProduct) {
+    renderTrash = (
+      <HiOutlineTrash
+        onClick={() => handleDeleteProduct(id)}
+        className="cursor-pointer"
+      />
+    );
+  }
   return (
     <div className="flex justify-between items-center">
       <div className="flex items-center gap-2">
@@ -20,12 +28,7 @@ const OrderCard = (props) => {
       <div className="flex items-center gap-2">
         <p className="text-lg font-medium">${price}</p>
 
-        <>
-          <HiOutlineTrash
-            onClick={() => handleDeleteProduct(id)}
-            className="h-6 w-6 text-black cursor-pointer"
-          />
-        </>
+        <>{renderTrash} </>
       </div>
     </div>
   );
