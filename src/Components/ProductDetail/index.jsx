@@ -4,7 +4,7 @@ import { AppContext } from "../../Context";
 
 const ProductDetail = () => {
   const context = useContext(AppContext);
-  console.log("context.productToShow: ", context.productToShow);
+  // console.log("context.productToShow: ", context.productToShow);
   return (
     <aside
       className={`${

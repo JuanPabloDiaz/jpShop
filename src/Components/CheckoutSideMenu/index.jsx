@@ -14,6 +14,17 @@ const CheckoutSideMenu = () => {
     context.setCartProducts(newCartProducts);
     context.setCart(context.cart - 1);
   };
+  const handleCheckout = () => {
+    const orderToAdd = {
+      date: "2021-10-10",
+      products: context.cartProducts,
+      totalProducts: context.cartProducts.length,
+      totalPrice: totalPrice(context.cartProducts),
+    };
+
+    context.setOrder([...context.order, orderToAdd]);
+    context.setCartProducts([]);
+  };
 
   return (
     <aside
@@ -41,12 +52,18 @@ const CheckoutSideMenu = () => {
         ))}
       </div>
       <div className="p-6">
-        <p>
-          <span className="font-medium">Total</span>
+        <p className="flex justify-around items-center ">
+          <span className="font-light">Total</span>
           <span className="font-medium">
             ${totalPrice(context.cartProducts)}
           </span>
         </p>
+        <button
+          className="w-full bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300"
+          onClick={() => handleCheckout()}
+        >
+          Checkout
+        </button>
       </div>
     </aside>
   );
