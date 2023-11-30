@@ -12,10 +12,12 @@ const Home = () => {
     fetch("https://dummyjson.com/products")
       .then((response) => response.json())
       .then((json) => {
-        // console.log("Data from Dummy API: ", json); // Log the data
+        console.log("Data from Dummy API: ", json); // Log the data
         setItems(json.products); // Add the data to the state (setItems) and specify the data to be added (json.products)
       });
   }, []);
+
+  console.log("items: ", items); // Log the state
 
   return (
     <Layout>
