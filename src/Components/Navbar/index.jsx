@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../../Context";
+import { HiOutlineShoppingCart } from "react-icons/hi";
 
 const Navbar = () => {
   const activeStyle = "underline text-gray-500 underline-offset-4";
@@ -98,9 +99,10 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/card"
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className={`flex justify-center items-center ${({ isActive }) =>
+              isActive ? activeStyle : undefined}`}
           >
-            🛒 {context.count}
+            <HiOutlineShoppingCart className="mr-1" /> {context.count}
           </NavLink>
         </li>
       </ul>

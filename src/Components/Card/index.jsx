@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../../Context";
+import { HiPlusSm } from "react-icons/hi";
 
 const Card = (data) => {
   const context = useContext(AppContext);
@@ -14,12 +15,10 @@ const Card = (data) => {
           src={data.data.images[0]}
           alt={data.data.title}
         />
-        <div
+        <HiPlusSm
           onClick={() => context.setCount(context.count + 1)}
           className="absolute top-0 right-0 flex justify-center items-center bg-white rounded-full w-6 h-6 m-2"
-        >
-          +
-        </div>
+        />
       </figure>
       <p className="flex justify-around">
         <span className="text-sm font-light">{data.data.title}</span>
