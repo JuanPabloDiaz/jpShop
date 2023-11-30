@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AppContext } from "../../Context";
 
 const Navbar = () => {
   const activeStyle = "underline text-gray-500 underline-offset-4";
+  const context = useContext(AppContext);
 
   return (
     <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-md font-light top-0">
@@ -97,7 +100,7 @@ const Navbar = () => {
             to="/card"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            🛒 0
+            🛒 {context.count}
           </NavLink>
         </li>
       </ul>
