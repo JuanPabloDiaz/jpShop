@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"; // Hooks to consume the API
 import Card from "../../Components/Card";
 import Layout from "../../Components/Layout";
+import ProductDetail from "../../Components/ProductDetail";
 
 const Home = () => {
   // UseState is a hook to add the info from the API to the state
@@ -23,6 +24,7 @@ const Home = () => {
           <Card key={item.id} data={item} />
         ))}
       </div>
+      <ProductDetail />
     </Layout>
   );
 };
