@@ -9,6 +9,11 @@ const Card = (data) => {
     context.openProductDetail();
     context.setProductToShow(productDetail);
   };
+  const addProductToCart = (productData) => {
+    context.setCount(context.count + 1);
+    context.setCartProducts([...context.cartProducts, productData]);
+    console.log(context.cartProducts);
+  };
 
   return (
     <div
@@ -25,7 +30,7 @@ const Card = (data) => {
           alt={data.data.title}
         />
         <HiPlusSm
-          onClick={() => context.setCount(context.count + 1)}
+          onClick={() => addProductToCart(data.data)}
           className="absolute top-0 right-0 flex justify-center items-center bg-white rounded-full w-6 h-6 m-2"
         />
       </figure>
