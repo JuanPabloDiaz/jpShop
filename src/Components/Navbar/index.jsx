@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-md font-light top-0">
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg">
-          <NavLink to="/">Shopi</NavLink>
+          <NavLink to="/">JP·Shop</NavLink>
         </li>
         <li>
           <NavLink
@@ -66,7 +66,7 @@ const Navbar = () => {
             to="/home-decoration"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Home
+            HomeGoods
           </NavLink>
         </li>
       </ul>
