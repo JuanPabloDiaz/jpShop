@@ -1,5 +1,7 @@
-const Signin = () => {
-  return <div>Signin</div>;
+import Layout from "../../Components/Layout";
+
+const SignIn = () => {
+  return <Layout>Sign In</Layout>;
 };
 
-export default Signin;
+export default SignIn;
