@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../../Context";
-import { HiPlusSm } from "react-icons/hi";
+import { HiCheck, HiPlusSm } from "react-icons/hi";
 
 const Card = (data) => {
   const context = useContext(AppContext);
@@ -20,6 +20,25 @@ const Card = (data) => {
     context.closeProductDetail();
   };
 
+  // Check if the product is in the cart:
+  const renderIcon = (id) => {
+    const productIsInCart =
+      context.cartProducts.filter((product) => product.id === id).length > 0;
+
+    if (productIsInCart) {
+      return (
+        <HiCheck className="absolute top-0 right-0 flex justify-center items-center bg-black rounded-full w-6 h-6 m-2 text-white" />
+      );
+    } else {
+      return (
+        <HiPlusSm
+          onClick={(event) => addProductToCart(event, data.data)}
+          className="absolute top-0 right-0 flex justify-center items-center bg-white rounded-full w-6 h-6 m-2"
+        />
+      );
+    }
+  };
+
   return (
     <div
       className="bg-amber-700/40 cursor-pointer w-56 h-60 rounded-lg"
@@ -34,10 +53,7 @@ const Card = (data) => {
           src={data.data.images[0]}
           alt={data.data.title}
         />
-        <HiPlusSm
-          onClick={(e) => addProductToCart(e, data.data)}
-          className="absolute top-0 right-0 flex justify-center items-center bg-white rounded-full w-6 h-6 m-2"
-        />
+        {renderIcon(data.data.id)}
       </figure>
       <p className="flex justify-around">
         <span className="text-sm font-light">{data.data.title}</span>
