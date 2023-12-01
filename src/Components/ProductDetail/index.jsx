@@ -9,6 +9,8 @@ import {
   HiOutlinePhotograph,
   HiOutlineDocumentText,
   HiOutlineBadgeCheck,
+  HiOutlineArrowNarrowLeft,
+  HiOutlineArrowNarrowRight,
 } from "react-icons/hi";
 
 import { useContext, useState } from "react";
@@ -73,44 +75,59 @@ const ProductDetail = () => {
         )}
       </figure>
       <div className="flex justify-around items-center">
-        <button onClick={handlePrev}>Previous</button>
-        <button onClick={handleNext}>Next</button>
+        <button
+          onClick={handlePrev}
+          className="flex justify-evenly items-center w-32 bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300"
+        >
+          <HiOutlineArrowNarrowLeft />
+          Previous
+        </button>
+        <button
+          onClick={handleNext}
+          className="flex justify-evenly items-center w-32 bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300"
+        >
+          Next
+          <HiOutlineArrowNarrowRight />
+        </button>
       </div>
       {/* // ... other code */}
       <div className="p-6">
+        <HiOutlineBadgeCheck />
         <h3 className="font-bold text-2xl mb-2">
-          <HiOutlineBadgeCheck /> {context.productToShow?.title}
+          {context.productToShow?.title}
         </h3>
-        <p className="font-medium text-lg mb-2">
+        <p className="flex justify-between items-center font-medium text-lg mb-2">
           <HiOutlineCash /> ${context.productToShow?.price}
         </p>
-        <p className="font-light text-sm mb-2">
+        <p className="flex justify-between items-center font-light text-sm mb-2">
           <HiOutlineBadgeCheck /> Brand: {context.productToShow?.brand}
         </p>
-        <p className="font-light text-sm mb-2">
+        <p className="flex justify-between items-center font-light text-sm mb-2">
           Category: {context.productToShow?.category}
         </p>
-        <p className="font-light text-sm mb-2">
+        <p className="flex justify-between items-center font-light text-sm mb-2">
           <HiOutlineTag /> Discount: {context.productToShow?.discountPercentage}{" "}
           %
         </p>
-        <p className="font-light text-sm mb-2">
+        <p className="flex justify-between items-center font-light text-sm mb-2">
           <HiOutlineIdentification /> Id: {context.productToShow?.id}
         </p>
-        <p className="font-light text-sm mb-2">
+        <p className="flex justify-between items-center font-light text-sm mb-2">
           <HiOutlineStar /> Rating: {context.productToShow?.rating}
         </p>
-        <p className="font-light text-sm mb-2">
+        <p className="flex justify-between items-center font-light text-sm mb-2">
           <HiOutlineTruck /> Stock: {context.productToShow?.stock}
         </p>
-        <p className="font-light text-sm mb-2">
-          <HiOutlinePhotograph /> Thumbnail: {context.productToShow?.thumbnail}
+        <HiOutlinePhotograph />
+        <p className="flex justify-between items-center font-light text-sm mb-2">
+          Thumbnail: {context.productToShow?.thumbnail}
         </p>
-        <p className="font-light text-sm mb-2">
-          <HiOutlineDocumentText /> Description:{" "}
+        <HiOutlineDocumentText />
+        <p className="flex justify-between items-center font-light text-sm mb-2">
+          Description:
           {context.productToShow?.description}
         </p>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded">
+        <button className="flex justify-center gap-2 items-center w-full bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300">
           <HiOutlineShoppingCart /> Add to Cart
         </button>
       </div>
