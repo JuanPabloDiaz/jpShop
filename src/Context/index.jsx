@@ -41,8 +41,13 @@ export const AppProvider = ({ children }) => {
   const [order, setOrder] = useState([]);
 
   // Get Products · Search a product
-  const [searchByTitle, setSearchByTitle] = useState("");
+  // const [searchByTitle, setSearchByTitle] = useState("");
+  const [searchByTitle, setSearchByTitle] = useState(null);
   // console.log(searchByTitle);
+
+  // Get Products · Filter items by category
+  const [searchByCategory, setSearchByCategory] = useState(null);
+  // console.log("searchByCategory: ", searchByCategory);
 
   // Filter items by search
   const [filteredItems, setFilteredItems] = useState(null);
@@ -54,13 +59,72 @@ export const AppProvider = ({ children }) => {
     );
   };
 
-  // Filter items by search · useEffect
-  useEffect(() => {
-    if (searchByTitle) {
-      return setFilteredItems(filteredItemsByTitle(items, searchByTitle));
+  // Filter items by category
+  const filteredItemsByCategory = (items, searchByCategory) => {
+    return items?.filter((item) =>
+      item.category.name.toLowerCase().includes(searchByCategory.toLowerCase())
+    );
+  };
+
+  const filterBy = (searchType, items, searchByTitle, searchByCategory) => {
+    // Filter by title
+    if (searchType === "BY_TITLE") {
+      return filteredItemsByTitle(items, searchByTitle);
     }
-  }, [items, searchByTitle]);
-  // console.log("filteredItems: ", filteredItems);
+
+    // Filter by category
+    if (searchType === "BY_CATEGORY") {
+      return filteredItemsByCategory(items, searchByCategory);
+    }
+
+    // Filter by title and category
+    if (searchType === "BY_TITLE_AND_CATEGORY") {
+      return filteredItemsByCategory(items, searchByCategory).filter((item) =>
+        item.title.toLowerCase().includes(searchByTitle.toLowerCase())
+      );
+    }
+
+    // The is NO Filter, return all items
+    if (!searchType) {
+      return items;
+    }
+  };
+
+  useEffect(() => {
+    // Filter by title and category
+    if (searchByTitle && searchByCategory) {
+      return setFilteredItems(
+        filterBy(
+          "BY_TITLE_AND_CATEGORY",
+          items,
+          searchByTitle,
+          searchByCategory
+        )
+      );
+    }
+    // Filter by title
+    if (searchByTitle && !searchByCategory) {
+      return setFilteredItems(
+        filterBy("BY_TITLE", items, searchByTitle, searchByCategory)
+      );
+    }
+    // Filter by category
+    if (!searchByTitle && searchByCategory) {
+      return setFilteredItems(
+        filterBy("BY_CATEGORY", items, searchByTitle, searchByCategory)
+      );
+    }
+    // No Filter, return all items
+    if (!searchByTitle && !searchByCategory) {
+      return setFilteredItems(
+        filterBy(null, items, searchByTitle, searchByCategory)
+      );
+    }
+  }, [items, searchByTitle, searchByCategory]);
+
+  console.log("searchByCategory: ", searchByCategory);
+  console.log("searchByTitle: ", searchByTitle);
+  console.log("filteredItems: ", filteredItems);
 
   return (
     <AppContext.Provider
@@ -85,6 +149,8 @@ export const AppProvider = ({ children }) => {
         setSearchByTitle,
         filteredItems,
         setFilteredItems,
+        searchByCategory,
+        setSearchByCategory,
       }}
     >
       {children}
