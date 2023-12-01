@@ -9,7 +9,10 @@ const MyOrders = () => {
 
   return (
     <Layout>
-      <h1 className="">My Orders</h1>
+      <div className="flex items-center justify-center relative mb-4">
+        <h1 className="font-medium text-md sm:text-xl">My Orders</h1>
+      </div>
+
       {context.order.map((order, index) => (
         <Link to={`/my-orders/${index}`} key={index}>
           <OrdersCard

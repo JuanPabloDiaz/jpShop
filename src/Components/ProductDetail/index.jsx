@@ -9,9 +9,9 @@ const ProductDetail = () => {
     <aside
       className={`${
         context.isProductDetailOpen ? "flex" : "hidden"
-      } flex-col fixed right-0 w-[360px] h-[90vh] border border-black shadow-xl shadow-black rounded-lg bg-white/70 p-2 m-2`}
+      } flex-col fixed right-0 top-20 w-[360px] h-min sm:h-[90vh] border border-black shadow-xl shadow-black rounded-lg bg-white sm:bg-white/70 p-2 m-2`}
     >
-      <div className="flex justify-between items-center ">
+      <div className="flex justify-between items-center p-6">
         <h2 className="font-medium">Product Detail</h2>
         <HiOutlineX onClick={() => context.closeProductDetail()} />
       </div>

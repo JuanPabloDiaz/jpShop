@@ -16,7 +16,7 @@ const MyOrder = () => {
   }
   return (
     <Layout>
-      <div className="flex items-center justify-center relative w-80 mb-5 ">
+      <div className="flex items-center justify-center relative w-80 mb-4">
         <Link
           to="/my-orders"
           className="absolute left-0 bg-slate-200/60 rounded-full p-0.5 hover:bg-slate-300/80 transition duration-300"
@@ -30,7 +30,12 @@ const MyOrder = () => {
           <OrderCard
             key={product.id}
             id={product.id}
-            title={product.title}
+            /* limmit the title to 10 characters, and limit the number of words to 2: */
+            title={product.title
+              .split(" ")
+              .slice(0, 2)
+              .map((word) => word.substring(0, 10))
+              .join(" ")}
             imageUrl={product.images[0]}
             price={product.price}
             quantity={product.quantity}

@@ -16,7 +16,7 @@ const OrdersCard = (props) => {
   const singularOrPlural = totalProducts === 1 ? "product" : "products";
 
   return (
-    <div className="flex  justify-evenly items-center w-96 p-3 m-3 border border-black bg-white  hover:border-none hover:shadow-black transition duration-300 rounded-xl border-box shadow-box shadow-md shadow-black/50">
+    <div className="flex justify-evenly items-center w-80 sm:w-96 p-3 m-3 border border-black bg-white  hover:border-none hover:shadow-black transition duration-300 rounded-xl border-box shadow-box shadow-md shadow-black/50">
       <div className="flex flex-col gap-3">
         <HiOutlineCalendar className="mr-2" />
         <HiOutlineShoppingCart className="mr-2" />
@@ -31,7 +31,7 @@ const OrdersCard = (props) => {
       <div className="flex items-center p-2 w-fit">
         <BsCurrencyDollar className="w-6 h-6 text-slate-900" />
         <p className="font-medium text-2xl">
-          {totalPrice}
+          {String(totalPrice).slice(0, 4)}
           {Number.isInteger(totalPrice) && (
             <span className="text-sm text-gray-500/80">.00</span>
           )}
