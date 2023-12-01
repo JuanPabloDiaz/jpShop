@@ -62,7 +62,7 @@ export const AppProvider = ({ children }) => {
   // Filter items by category
   const filteredItemsByCategory = (items, searchByCategory) => {
     return items?.filter((item) =>
-      item.category.name.toLowerCase().includes(searchByCategory.toLowerCase())
+      item.category.toLowerCase().includes(searchByCategory.toLowerCase())
     );
   };
 
