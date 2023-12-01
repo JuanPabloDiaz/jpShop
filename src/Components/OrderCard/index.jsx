@@ -28,7 +28,7 @@ const OrderCard = (props) => {
       </div>
 
       <div className="flex gap-2">?</div>
-      <p className="flex text-lg font-medium">${price}</p>
+      <p className="flex text-lg font-medium">${String(price).slice(0, 4)}</p>
       <div className="flex flex-col items-center h-20 p-0.5">
         {/* <>
           <HiPlusSm className="bg-white rounded-full w-6 h-6" />

@@ -26,8 +26,8 @@ const Navbar = () => {
         "absolute md:fixed top-2 inset-x-0 z-40 md:transition-shadow-xl md:shadow-black md:transition-color duration-500 md:-translate-y-6 md:h-20 lg:h-14"
       )}
     >
-      <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-md font-light top-0">
-        <ul className="flex items-center gap-3">
+      <nav className="hidden sm:flex flex-col sm:flex-row justify-between items-center fixed z-10 w-full py-5 px-8 text-md font-light top-0">
+        <ul className="flex flex-col sm:flex-row items-center gap-3">
           <li className="font-semibold text-lg">
             <NavLink to="/" onClick={() => context.setSearchByCategory(null)}>
               JP·Shop
@@ -114,7 +114,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <ul className="flex items-center gap-3">
+        <ul className="hidden sm:flex items-center gap-3">
           <li>
             <NavLink
               to="/my-orders"
