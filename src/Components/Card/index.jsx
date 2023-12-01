@@ -54,7 +54,7 @@ const Card = (data) => {
           {data.data.category}
         </span>
         <img
-          className="rounded-lg w-full h-full object-cover"
+          className="rounded-lg w-full h-full object-scale-down"
           src={data.data.images[0]}
           alt={data.data.title}
         />
