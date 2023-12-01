@@ -1,4 +1,3 @@
-// import { HiOutlineX } from "react-icons/hi";
 import {
   HiOutlineX,
   HiOutlineTag,
@@ -12,12 +11,36 @@ import {
   HiOutlineBadgeCheck,
 } from "react-icons/hi";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../../Context";
+
+import { BeatLoader } from "react-spinners"; // npm install react-spinners
 
 const ProductDetail = () => {
   const context = useContext(AppContext);
   // console.log("context.productToShow: ", context.productToShow);
+
+  // Inside your component
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const [isLoading, setIsLoading] = useState(false); // for image loading
+
+  const handleNext = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === context.productToShow?.images?.length - 1
+        ? 0
+        : prevIndex + 1
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0
+        ? context.productToShow?.images?.length - 1
+        : prevIndex - 1
+    );
+  };
+
   return (
     <aside
       className={`${
@@ -28,13 +51,31 @@ const ProductDetail = () => {
         <h2 className="font-medium">Product Detail</h2>
         <HiOutlineX onClick={() => context.closeProductDetail()} />
       </div>
-      <figure className="flex justify-center items-center px-6">
+      {/* <figure className="flex justify-center items-center px-6">
         <img
           className="w-fit h-60 rounded-lg"
           src={context.productToShow?.images?.[0]}
           alt={context.productToShow?.title}
         />
+      </figure> */}
+      {/* Image Slices: */}
+      <figure className="flex justify-center items-center px-6">
+        {isLoading ? (
+          <BeatLoader color="#123abc" />
+        ) : (
+          context.productToShow?.images?.[currentImageIndex] && (
+            <img
+              className="w-fit h-60 rounded-lg"
+              src={context.productToShow?.images[currentImageIndex]}
+              alt={context.productToShow?.title}
+            />
+          )
+        )}
       </figure>
+      <div className="flex justify-around items-center">
+        <button onClick={handlePrev}>Previous</button>
+        <button onClick={handleNext}>Next</button>
+      </div>
       {/* // ... other code */}
       <div className="p-6">
         <h3 className="font-bold text-2xl mb-2">
