@@ -3,9 +3,9 @@ import { createContext, useEffect, useState } from "react";
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  // Home · Get Products - Fetch data from API
-  // UseState is a hook to add the info from the API to the state
-  const [items, setItems] = useState([]); // State to store the data from the dummy API. It's an empty array because the data is an array of objects
+  // Get Products · State to store the data from the dummy API. It's an empty array because the data is an array of objects
+  // Fetch data from API · hook to add the info from the API to the state
+  const [items, setItems] = useState([]);
 
   // UseEffect is a hook to fetch the data from the API
   useEffect(() => {
@@ -40,6 +40,10 @@ export const AppProvider = ({ children }) => {
   // Shopping Cart · Order
   const [order, setOrder] = useState([]);
 
+  // Get Products · Search a product
+  const [searchByTitle, setSearchByTitle] = useState("");
+  console.log(searchByTitle);
+
   return (
     <AppContext.Provider
       value={{
@@ -59,6 +63,8 @@ export const AppProvider = ({ children }) => {
         closeCheckoutSideMenu,
         order,
         setOrder,
+        searchByTitle,
+        setSearchByTitle,
       }}
     >
       {children}
