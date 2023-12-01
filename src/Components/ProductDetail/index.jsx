@@ -1,4 +1,17 @@
-import { HiOutlineX } from "react-icons/hi";
+// import { HiOutlineX } from "react-icons/hi";
+import {
+  HiOutlineX,
+  HiOutlineTag,
+  HiOutlineShoppingCart,
+  HiOutlineIdentification,
+  HiOutlineStar,
+  HiOutlineCash,
+  HiOutlineTruck,
+  HiOutlinePhotograph,
+  HiOutlineDocumentText,
+  HiOutlineBadgeCheck,
+} from "react-icons/hi";
+
 import { useContext } from "react";
 import { AppContext } from "../../Context";
 
@@ -15,57 +28,52 @@ const ProductDetail = () => {
         <h2 className="font-medium">Product Detail</h2>
         <HiOutlineX onClick={() => context.closeProductDetail()} />
       </div>
-      <figure className="px-6">
+      <figure className="flex justify-center items-center px-6">
         <img
-          className="w-full h-full rounded-lg"
+          className="w-fit h-60 rounded-lg"
           src={context.productToShow?.images?.[0]}
           alt={context.productToShow?.title}
         />
       </figure>
-      <div>
-        <p className="flex flex-col p-6">
-          <span className="font-medium text-2xl mb-2">
-            ${context.productToShow?.price}
-          </span>
-          <span className="font-medium text-md">
-            {context.productToShow?.title}
-          </span>
-          <span className="font-light text-sm">
-            {context.productToShow?.description}
-          </span>
+      {/* // ... other code */}
+      <div className="p-6">
+        <h3 className="font-bold text-2xl mb-2">
+          <HiOutlineBadgeCheck /> {context.productToShow?.title}
+        </h3>
+        <p className="font-medium text-lg mb-2">
+          <HiOutlineCash /> ${context.productToShow?.price}
         </p>
-      </div>
-      <div>
-        <p className="flex flex-col p-6">
-          <span className="font-light text-sm">
-            Brand: {context.productToShow?.brand}
-          </span>
-          <span className="font-light text-sm">
-            Category: {context.productToShow?.category}
-          </span>
-          <span className="font-light text-sm">
-            Discount: {context.productToShow?.discountPercentage} %
-          </span>
-          <span className="font-light text-sm">
-            Id: {context.productToShow?.id}
-          </span>
-          <span className="font-light text-sm">
-            rating: {context.productToShow?.rating}
-          </span>
-          <span className="font-light text-sm">
-            stock: {context.productToShow?.stock}
-          </span>
-          <span className="font-light text-sm">
-            thumbnail: {context.productToShow?.thumbnail}
-          </span>
-          <span className="font-light text-sm">
-            title: {context.productToShow?.title}
-          </span>
-          <span className="font-light text-sm">
-            description: {context.productToShow?.description}
-          </span>
+        <p className="font-light text-sm mb-2">
+          <HiOutlineBadgeCheck /> Brand: {context.productToShow?.brand}
         </p>
+        <p className="font-light text-sm mb-2">
+          Category: {context.productToShow?.category}
+        </p>
+        <p className="font-light text-sm mb-2">
+          <HiOutlineTag /> Discount: {context.productToShow?.discountPercentage}{" "}
+          %
+        </p>
+        <p className="font-light text-sm mb-2">
+          <HiOutlineIdentification /> Id: {context.productToShow?.id}
+        </p>
+        <p className="font-light text-sm mb-2">
+          <HiOutlineStar /> Rating: {context.productToShow?.rating}
+        </p>
+        <p className="font-light text-sm mb-2">
+          <HiOutlineTruck /> Stock: {context.productToShow?.stock}
+        </p>
+        <p className="font-light text-sm mb-2">
+          <HiOutlinePhotograph /> Thumbnail: {context.productToShow?.thumbnail}
+        </p>
+        <p className="font-light text-sm mb-2">
+          <HiOutlineDocumentText /> Description:{" "}
+          {context.productToShow?.description}
+        </p>
+        <button className="bg-blue-500 text-white px-4 py-2 rounded">
+          <HiOutlineShoppingCart /> Add to Cart
+        </button>
       </div>
+      {/* // ... other code */}
     </aside>
   );
 };
