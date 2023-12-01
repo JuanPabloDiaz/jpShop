@@ -6,25 +6,31 @@ import { AppContext } from "../../Context";
 
 const Home = () => {
   const context = useContext(AppContext);
-  // {  console.log("Context: ", context);  }  //  { console.log("items: ", context.items);}
 
   const renderView = () => {
-    if (context.searchByTitle?.length > 0) {
-      if (context.filteredItems?.length > 0) {
-        return context.filteredItems?.map((item) => (
-          <Card key={item.id} data={item} />
-        ));
-      } else {
-        return (
-          <div className="flex items-center justify-center w-full">
-            <h3 className="font-light text-md">No results found</h3>
-          </div>
-        );
-      }
+    // if there are items in the filteredItems array, render them
+    // Filter by title and category
+    if (context.filteredItems?.length > 0) {
+      return context.filteredItems?.map((item) => (
+        <Card key={item.id} data={item} />
+      ));
     } else {
-      return context.items?.map((item) => <Card key={item.id} data={item} />);
+      return (
+        <div className="flex flex-col gap-3 w-full">
+          <h3 className="font-light text-md">
+            No results for:
+            <span className="font-medium text-md text-gray-400 pl-2">
+              {context.searchByTitle}
+            </span>
+          </h3>
+          <p className="font-light text-sm text-gray-400/80">
+            Try searching for another product
+          </p>
+        </div>
+      );
     }
   };
+
   return (
     <Layout>
       <div className="flex items-center justify-center relative w-80 mb-4">
