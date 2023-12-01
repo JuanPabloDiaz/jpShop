@@ -13,9 +13,17 @@ const CheckoutSideMenu = () => {
       (product) => product.id !== id
     );
     context.setCartProducts(newCartProducts);
-    context.setCart(context.cart - 1);
+    context.setCount(context.cart - 1);
+    // Close the sidebar if the cart is empty
+    if (newCartProducts.length === 0) {
+      context.closeCheckoutSideMenu();
+    }
   };
   const handleCheckout = () => {
+    if (context.cartProducts.length === 0) {
+      return; // Do nothing if the cart is empty
+    }
+    // Create a new order:
     const orderToAdd = {
       date: "2021-10-10",
       products: context.cartProducts,
@@ -25,6 +33,8 @@ const CheckoutSideMenu = () => {
 
     context.setOrder([...context.order, orderToAdd]);
     context.setCartProducts([]);
+    context.closeCheckoutSideMenu(); // Close the sidebar
+    context.setCount(0); // Reset the cart to 0
     context.setSearchByTitle(null); // Reset the search
     context.setSearchByCategory(null); // Reset the search
   };
@@ -38,15 +48,18 @@ const CheckoutSideMenu = () => {
       <div className="flex justify-between items-center p-6">
         <h2 className="font-medium">My Order</h2>
         <div>
-          <HiOutlineX onClick={() => context.closeCheckoutSideMenu()} />
+          <HiOutlineX
+            className="hover:bg-gray-200 rounded-full transition duration-300 cursor-pointer"
+            onClick={() => context.closeCheckoutSideMenu()}
+          />
         </div>
       </div>
-      <div className="px-6 overflow-y-scroll">
+      <div className="px-6 overflow-y-scroll flex-1">
         {context.cartProducts.map((product) => (
           <OrderCard
             key={product.id}
             id={product.id}
-            title={product.title}
+            title={product.title.split(" ").slice(0, 3).join(" ")}
             imageUrl={product.images[0]}
             price={product.price}
             quantity={product.quantity}
@@ -55,7 +68,7 @@ const CheckoutSideMenu = () => {
         ))}
       </div>
       <div className="p-6">
-        <p className="flex justify-around items-center ">
+        <p className="flex justify-around items-center">
           <span className="font-light">Total</span>
           <span className="font-medium">
             ${totalPrice(context.cartProducts)}

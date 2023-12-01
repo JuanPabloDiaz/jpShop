@@ -9,7 +9,7 @@ const MyOrders = () => {
 
   return (
     <Layout>
-      <h1 className="">MyOrders</h1>
+      <h1 className="">My Orders</h1>
       {context.order.map((order, index) => (
         <Link to={`/my-orders/${index}`} key={index}>
           <OrdersCard

@@ -122,9 +122,9 @@ export const AppProvider = ({ children }) => {
     }
   }, [items, searchByTitle, searchByCategory]);
 
-  console.log("searchByCategory: ", searchByCategory);
-  console.log("searchByTitle: ", searchByTitle);
-  console.log("filteredItems: ", filteredItems);
+  // console.log("searchByCategory: ", searchByCategory);
+  // console.log("searchByTitle: ", searchByTitle);
+  // console.log("filteredItems: ", filteredItems);
 
   return (
     <AppContext.Provider

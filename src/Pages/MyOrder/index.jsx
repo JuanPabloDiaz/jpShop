@@ -16,9 +16,12 @@ const MyOrder = () => {
   }
   return (
     <Layout>
-      <div className="flex items-center justify-center relative w-80">
-        <Link to="/my-orders" className="absolute left-0">
-          <HiChevronLeft className="h-4 w-4 cursor-pointer" />
+      <div className="flex items-center justify-center relative w-80 mb-5 ">
+        <Link
+          to="/my-orders"
+          className="absolute left-0 bg-slate-200/60 rounded-full p-0.5 hover:bg-slate-300/80 transition duration-300"
+        >
+          <HiChevronLeft className="h-6 w-6 cursor-pointer" />
         </Link>
         <h1 className="">My Order</h1>
       </div>

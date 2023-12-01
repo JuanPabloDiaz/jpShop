@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../../Context";
-import { HiCheck, HiPlusSm } from "react-icons/hi";
+import { HiCheck } from "react-icons/hi";
+import { TbShoppingCartPlus } from "react-icons/tb";
 
 const Card = (data) => {
   const context = useContext(AppContext);
@@ -27,21 +28,25 @@ const Card = (data) => {
 
     if (productIsInCart) {
       return (
-        <HiCheck className="absolute top-0 right-0 flex justify-center items-center bg-black rounded-full w-6 h-6 m-2 text-white" />
+        <div className="absolute top-0 right-0 flex justify-center items-center bg-black text-white rounded-full border-none m-2 p-1">
+          <HiCheck className="w-4 h-4" />
+        </div>
       );
     } else {
       return (
-        <HiPlusSm
-          onClick={(event) => addProductToCart(event, data.data)}
-          className="absolute top-0 right-0 flex justify-center items-center bg-white rounded-full w-6 h-6 m-2"
-        />
+        <div className="absolute top-0 right-0 flex justify-center items-center bg-white/50 hover:bg-white transition duration-300 rounded-full border-none m-2 p-1">
+          <TbShoppingCartPlus
+            onClick={(event) => addProductToCart(event, data.data)}
+            className="w-4 h-4"
+          />
+        </div>
       );
     }
   };
 
   return (
     <div
-      className="bg-amber-700/40 cursor-pointer w-56 h-60 rounded-lg"
+      className="bg-white border shadow-lg cursor-pointer w-56 h-60 rounded-lg"
       onClick={() => showProduct(data.data)}
     >
       <figure className="relative mb-2 w-full h-4/5">
@@ -56,7 +61,9 @@ const Card = (data) => {
         {renderIcon(data.data.id)}
       </figure>
       <p className="flex justify-around">
-        <span className="text-sm font-light">{data.data.title}</span>
+        <span className="text-sm font-light">
+          {data.data.title.split(" ").slice(0, 3).join(" ")}
+        </span>
         <span className="text-lg font-medium">${data.data.price}</span>
       </p>
     </div>
