@@ -111,7 +111,8 @@ const Navbar = () => {
             className={`flex justify-center items-center ${({ isActive }) =>
               isActive ? activeStyle : undefined}`}
           >
-            <HiOutlineShoppingCart className="mr-1" /> {context.count}
+            <HiOutlineShoppingCart className="mr-1" />{" "}
+            {context.cartProducts.length}
           </NavLink>
         </li>
       </ul>
