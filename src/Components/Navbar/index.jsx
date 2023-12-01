@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../../Context";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useScrollPosition } from "../../Utils/useScrollPosition";
@@ -7,6 +7,8 @@ import { useScrollPosition } from "../../Utils/useScrollPosition";
 const Navbar = () => {
   const activeStyle = "underline text-gray-500 underline-offset-4";
   const context = useContext(AppContext);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdownTech, setShowDropdownTech] = useState(false);
 
   function classNamesNavBarScroll(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -40,42 +42,58 @@ const Navbar = () => {
               All
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/smartphones"
-              className={({ isActive }) => (isActive ? activeStyle : undefined)}
-              onClick={() => context.setSearchByCategory("smartphones")}
-            >
-              Phones
-            </NavLink>
+
+          <li onClick={() => setShowDropdownTech(!showDropdownTech)}>
+            Electronics
+            {showDropdownTech && (
+              <div>
+                <NavLink
+                  to="/smartphones"
+                  className={({ isActive }) =>
+                    isActive ? activeStyle : undefined
+                  }
+                  onClick={() => context.setSearchByCategory("smartphones")}
+                >
+                  Phone
+                </NavLink>
+                <NavLink
+                  to="/laptops"
+                  className={({ isActive }) =>
+                    isActive ? activeStyle : undefined
+                  }
+                  onClick={() => context.setSearchByCategory("laptops")}
+                >
+                  Laptop
+                </NavLink>
+              </div>
+            )}
           </li>
-          <li>
-            <NavLink
-              to="/laptops"
-              className={({ isActive }) => (isActive ? activeStyle : undefined)}
-              onClick={() => context.setSearchByCategory("laptops")}
-            >
-              Laptops
-            </NavLink>
+          <li onClick={() => setShowDropdown(!showDropdown)}>
+            Cosmetics
+            {showDropdown && (
+              <div>
+                <NavLink
+                  to="/fragrances"
+                  className={({ isActive }) =>
+                    isActive ? activeStyle : undefined
+                  }
+                  onClick={() => context.setSearchByCategory("fragrances")}
+                >
+                  Perfumes
+                </NavLink>
+                <NavLink
+                  to="/skincare"
+                  className={({ isActive }) =>
+                    isActive ? activeStyle : undefined
+                  }
+                  onClick={() => context.setSearchByCategory("skincare")}
+                >
+                  Skin Care
+                </NavLink>
+              </div>
+            )}
           </li>
-          <li>
-            <NavLink
-              to="/fragrances"
-              className={({ isActive }) => (isActive ? activeStyle : undefined)}
-              onClick={() => context.setSearchByCategory("fragrances")}
-            >
-              Fragrances
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/skincare"
-              className={({ isActive }) => (isActive ? activeStyle : undefined)}
-              onClick={() => context.setSearchByCategory("skincare")}
-            >
-              Skin Care
-            </NavLink>
-          </li>
+
           <li>
             <NavLink
               to="/groceries"
