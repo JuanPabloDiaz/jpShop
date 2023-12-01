@@ -6,10 +6,25 @@ import { AppContext } from "../../Context";
 
 const Home = () => {
   const context = useContext(AppContext);
-  // {
-  //   console.log("Context: ", context);
-  //   console.log("items: ", context.items);
-  // }
+  // {  console.log("Context: ", context);  }  //  { console.log("items: ", context.items);}
+
+  const renderView = () => {
+    if (context.searchByTitle?.length > 0) {
+      if (context.filteredItems?.length > 0) {
+        return context.filteredItems?.map((item) => (
+          <Card key={item.id} data={item} />
+        ));
+      } else {
+        return (
+          <div className="flex items-center justify-center w-full">
+            <h3 className="font-light text-md">No results found</h3>
+          </div>
+        );
+      }
+    } else {
+      return context.items?.map((item) => <Card key={item.id} data={item} />);
+    }
+  };
   return (
     <Layout>
       <div className="flex items-center justify-center relative w-80 mb-4">
@@ -22,9 +37,7 @@ const Home = () => {
         onChange={(event) => context.setSearchByTitle(event.target.value)}
       />
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-        {context.items?.map((item) => (
-          <Card key={item.id} data={item} />
-        ))}
+        {renderView()}
       </div>
       <ProductDetail />
     </Layout>

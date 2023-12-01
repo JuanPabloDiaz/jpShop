@@ -42,7 +42,25 @@ export const AppProvider = ({ children }) => {
 
   // Get Products · Search a product
   const [searchByTitle, setSearchByTitle] = useState("");
-  console.log(searchByTitle);
+  // console.log(searchByTitle);
+
+  // Filter items by search
+  const [filteredItems, setFilteredItems] = useState(null);
+
+  // Filter items by search
+  const filteredItemsByTitle = (items, searchByTitle) => {
+    return items?.filter((item) =>
+      item.title.toLowerCase().includes(searchByTitle.toLowerCase())
+    );
+  };
+
+  // Filter items by search · useEffect
+  useEffect(() => {
+    if (searchByTitle) {
+      return setFilteredItems(filteredItemsByTitle(items, searchByTitle));
+    }
+  }, [items, searchByTitle]);
+  // console.log("filteredItems: ", filteredItems);
 
   return (
     <AppContext.Provider
@@ -65,6 +83,8 @@ export const AppProvider = ({ children }) => {
         setOrder,
         searchByTitle,
         setSearchByTitle,
+        filteredItems,
+        setFilteredItems,
       }}
     >
       {children}
