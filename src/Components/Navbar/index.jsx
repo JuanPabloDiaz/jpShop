@@ -42,7 +42,6 @@ const Navbar = () => {
               All
             </NavLink>
           </li>
-
           <li onClick={() => setShowDropdownTech(!showDropdownTech)}>
             Electronics
             {showDropdownTech && (
@@ -93,7 +92,6 @@ const Navbar = () => {
               </div>
             )}
           </li>
-
           <li>
             <NavLink
               to="/groceries"
@@ -131,14 +129,14 @@ const Navbar = () => {
               My Account
             </NavLink>
           </li> */}
-          {/* <li>
-          <NavLink
-            to="/sign-in"
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            Sign In
-          </NavLink>
-        </li> */}
+          <li>
+            <NavLink
+              to="/sign-in"
+              className={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              Sign In
+            </NavLink>
+          </li>
           <li>
             <NavLink
               to="/card"
