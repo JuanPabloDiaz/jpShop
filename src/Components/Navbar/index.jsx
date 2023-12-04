@@ -139,6 +139,14 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              to="/Logout"
+              className={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              Logout
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/card"
               className={`flex justify-center items-center ${({ isActive }) =>
                 isActive ? activeStyle : undefined}`}
