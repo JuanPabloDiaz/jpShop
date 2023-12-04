@@ -4,10 +4,10 @@ import Layout from "../../Components/Layout";
 function SignIn({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  console.log("username", username);
-  console.log("password", password);
+  console.log("username: ", username);
+  console.log("password: ", password);
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     onLogin(username, password);
   };
@@ -18,7 +18,7 @@ function SignIn({ onLogin }) {
         <h1 className="font-medium text-md sm:text-xl">Sign In</h1>
       </div>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleLogin}
         className="flex flex-col justify-center items-center w-screen h-screen gap-5"
       >
         <input
