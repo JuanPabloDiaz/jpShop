@@ -121,14 +121,26 @@ const Navbar = () => {
               My Orders
             </NavLink>
           </li>
-          {/* <li>
+          <li>
+            <NavLink
+              to="/card"
+              className={`flex justify-center items-center ${({ isActive }) =>
+                isActive ? activeStyle : undefined}`}
+            >
+              <HiOutlineShoppingCart className="mr-1" />
+              <p>{context.cartProducts.length}</p>
+            </NavLink>
+          </li>
+        </ul>
+        <ul className="hidden sm:flex items-center gap-3">
+          <li>
             <NavLink
               to="/my-account"
               className={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               My Account
             </NavLink>
-          </li> */}
+          </li>
           <li>
             <NavLink
               to="/sign-in"
@@ -143,16 +155,6 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               Logout
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/card"
-              className={`flex justify-center items-center ${({ isActive }) =>
-                isActive ? activeStyle : undefined}`}
-            >
-              <HiOutlineShoppingCart className="mr-1" />
-              <p>{context.cartProducts.length}</p>
             </NavLink>
           </li>
         </ul>

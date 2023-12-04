@@ -1,14 +1,16 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
 import { AppProvider } from "../../Context";
+import Navbar from "../../Components/Navbar";
+import CheckoutSideMenu from "../../Components/CheckoutSideMenu";
+import "./App.css";
+
 import Home from "../Home";
-import MyAccount from "../MyAccount";
 import MyOrder from "../MyOrder";
 import MyOrders from "../MyOrders";
 import NotFound from "../NotFound";
+import MyAccount from "../MyAccount";
 import SignIn from "../SignIn";
-import Navbar from "../../Components/Navbar";
-import "./App.css";
-import CheckoutSideMenu from "../../Components/CheckoutSideMenu";
+import Logout from "../Logout";
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -19,12 +21,16 @@ const AppRoutes = () => {
     { path: "/skincare", element: <Home /> },
     { path: "/groceries", element: <Home /> },
     { path: "/home-decoration", element: <Home /> },
+    // Should be Private Route but for testing purposes it is public
     { path: "/my-account", element: <MyAccount /> },
     { path: "/my-order", element: <MyOrder /> },
     { path: "/my-orders", element: <MyOrders /> },
     { path: "/my-orders/last", element: <MyOrder /> },
     { path: "/my-orders/:id", element: <MyOrder /> },
+    // Private Routes
     { path: "/sign-in", element: <SignIn /> },
+    { path: "/logout", element: <Logout /> },
+    // Not Found
     { path: "*", element: <NotFound /> },
   ]);
   return routes;
