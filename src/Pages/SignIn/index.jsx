@@ -13,6 +13,7 @@ function SignIn() {
     // console.log("username: ", username);
     // console.log("password: ", password);
     auth.login(username, password);
+    //    onLogin(username, password); this is from copilot-signin. and onlogin needs to be passed in as a prop. at the beginning of... function SignIn({ onLogin }) {
   };
 
   return (

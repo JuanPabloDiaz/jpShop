@@ -22,7 +22,7 @@ const Navbar = () => {
 
   // AuthContext:
   const auth = useAuth();
-  console.log("desde Navbar, Auth: ", auth);
+  console.log("in Navbar, Auth.user: ", auth.user);
 
   return (
     <header
@@ -140,30 +140,41 @@ const Navbar = () => {
           </li>
         </ul>
         <ul className="hidden sm:flex items-center gap-3">
-          <li>
-            <NavLink
-              to="/my-account"
-              className={({ isActive }) => (isActive ? activeStyle : undefined)}
-            >
-              My Account
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/sign-in"
-              className={({ isActive }) => (isActive ? activeStyle : undefined)}
-            >
-              Sign In
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/Logout"
-              className={({ isActive }) => (isActive ? activeStyle : undefined)}
-            >
-              Logout
-            </NavLink>
-          </li>
+          {auth.user && (
+            <li>
+              <NavLink
+                to="/my-account"
+                className={({ isActive }) =>
+                  isActive ? activeStyle : undefined
+                }
+              >
+                My Account
+              </NavLink>
+            </li>
+          )}
+          {auth.user ? (
+            <li>
+              <NavLink
+                to="/Logout"
+                className={({ isActive }) =>
+                  isActive ? activeStyle : undefined
+                }
+              >
+                Logout
+              </NavLink>
+            </li>
+          ) : (
+            <li>
+              <NavLink
+                to="/sign-in"
+                className={({ isActive }) =>
+                  isActive ? activeStyle : undefined
+                }
+              >
+                Sign In
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
     </header>
