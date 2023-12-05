@@ -3,10 +3,13 @@ import { useContext, useState } from "react";
 import { AppContext } from "../../Context";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useScrollPosition } from "../../Utils/useScrollPosition";
+import { useAuth } from "../../Context/auth";
 
 const Navbar = () => {
   const activeStyle = "underline text-gray-500 underline-offset-4";
   const context = useContext(AppContext);
+
+  //scrollPosition:
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdownTech, setShowDropdownTech] = useState(false);
 
@@ -16,6 +19,10 @@ const Navbar = () => {
 
   const scrollPosition = useScrollPosition();
   // console.log(scrollPosition);
+
+  // AuthContext:
+  const auth = useAuth();
+  console.log("desde Navbar, Auth: ", auth);
 
   return (
     <header
