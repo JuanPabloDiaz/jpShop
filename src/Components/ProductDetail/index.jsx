@@ -2,7 +2,6 @@ import {
   HiOutlineX,
   HiOutlineTag,
   HiOutlineShoppingCart,
-  HiOutlineIdentification,
   HiOutlineStar,
   HiOutlineCash,
   HiOutlineTruck,
@@ -18,9 +17,11 @@ import { AppContext } from "../../Context";
 
 import { BeatLoader } from "react-spinners"; // npm install react-spinners
 
-const ProductDetail = () => {
+const ProductDetail = (data) => {
   const context = useContext(AppContext);
   // console.log("context.productToShow: ", context.productToShow);
+
+  const { addProductToCart } = useContext(AppContext);
 
   // Inside your component
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -155,11 +156,14 @@ const ProductDetail = () => {
         <p className="text-gray-700 text-base">
           {context.productToShow?.description}
         </p>
-        <button className="flex justify-center gap-2 items-center w-full bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300">
+        {/* <button
+          className="flex justify-center gap-2 items-center w-full bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300"
+          onClick={() => addProductToCart(data.data)}
+        >
           <HiOutlineShoppingCart /> Add to Cart
-        </button>
+        </button> */}
       </div>
-      {/* // ... other code */}
+      {/* ... other code */}
     </aside>
   );
 };

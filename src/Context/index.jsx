@@ -40,6 +40,16 @@ export const AppProvider = ({ children }) => {
   // Shopping Cart · Order
   const [order, setOrder] = useState([]);
 
+  // add product to cart
+  const addProductToCart = (productData) => {
+    setCount(count + 1);
+    setCartProducts([...cartProducts, productData]);
+    // console.log("cartProducts: ", cartProducts);
+    // console.log("productData: ", productData);
+    openCheckoutSideMenu();
+    closeProductDetail();
+  };
+
   // Get Products · Search a product
   // const [searchByTitle, setSearchByTitle] = useState("");
   const [searchByTitle, setSearchByTitle] = useState(null);
@@ -151,6 +161,7 @@ export const AppProvider = ({ children }) => {
         setFilteredItems,
         searchByCategory,
         setSearchByCategory,
+        addProductToCart,
       }}
     >
       {children}

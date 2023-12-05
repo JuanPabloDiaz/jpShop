@@ -5,43 +5,51 @@ import { TbShoppingCartPlus } from "react-icons/tb";
 
 const Card = (data) => {
   const context = useContext(AppContext);
+  const { addProductToCart } = useContext(AppContext);
 
   const showProduct = (productDetail) => {
     context.openProductDetail();
     context.setProductToShow(productDetail);
     context.closeCheckoutSideMenu();
   };
-  const addProductToCart = (event, productData) => {
-    event.stopPropagation(); // Para que no se abra el modal de detalle de producto
 
-    context.setCount(context.count + 1);
-    context.setCartProducts([...context.cartProducts, productData]);
-    // console.log(context.cartProducts);
-    context.openCheckoutSideMenu();
-    context.closeProductDetail();
-  };
+  // const addProductToCart = (event, productData) => {
+  //   event.stopPropagation(); // Para que no se abra el modal de detalle de producto
+
+  //   context.setCount(context.count + 1);
+  //   context.setCartProducts([...context.cartProducts, productData]);
+  //   // console.log(context.cartProducts);
+  //   context.openCheckoutSideMenu();
+  //   context.closeProductDetail();
+  // };
 
   // Check if the product is in the cart:
   const renderIcon = (id) => {
-    const productIsInCart =
-      context.cartProducts.filter((product) => product.id === id).length > 0;
+    if (data && data.data && data.data.id) {
+      const productIsInCart =
+        context.cartProducts.filter((product) => product.id === id).length > 0;
 
-    if (productIsInCart) {
-      return (
-        <div className="absolute top-0 right-0 flex justify-center items-center bg-black text-white rounded-full border-none m-2 p-1">
-          <HiCheck className="w-4 h-4" />
-        </div>
-      );
-    } else {
-      return (
-        <div className="absolute top-0 right-0 flex justify-center items-center bg-white/50 hover:bg-white transition duration-300 rounded-full border-none m-2 p-1">
-          <TbShoppingCartPlus
-            onClick={(event) => addProductToCart(event, data.data)}
-            className="w-4 h-4"
-          />
-        </div>
-      );
+      if (productIsInCart) {
+        return (
+          <div className="absolute top-0 right-0 flex justify-center items-center bg-black text-white rounded-full border-none m-2 p-1">
+            <HiCheck className="w-4 h-4" />
+          </div>
+        );
+      } else {
+        return (
+          <div className="absolute top-0 right-0 flex justify-center items-center bg-white/50 hover:bg-white transition duration-300 rounded-full border-none m-2 p-1">
+            <TbShoppingCartPlus
+              onClick={(event) => {
+                event.stopPropagation();
+                addProductToCart(data.data);
+              }}
+              className="w-4 h-4"
+            />
+          </div>
+        );
+      }
     }
+    return null;
   };
 
   return (
