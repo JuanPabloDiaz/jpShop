@@ -26,8 +26,7 @@ const OrderCard = (props) => {
         </figure>
         <p className="text-sm font-light">{title}</p>
       </div>
-
-      <div className="flex gap-2">?</div>
+      <div className="flex gap-2"></div> {/* add quantity values here */}
       <p className="flex text-lg font-medium">${String(price).slice(0, 4)}</p>
       <div className="flex flex-col items-center h-20 p-0.5">
         {/* <>
