@@ -42,6 +42,8 @@ const ProductDetail = () => {
         : prevIndex - 1
     );
   };
+  // tailwind css classes for table:
+  const tdElements = "flex justify-start items-center gap-2 py-0.5";
 
   return (
     <aside
@@ -90,41 +92,67 @@ const ProductDetail = () => {
           <HiOutlineArrowNarrowRight />
         </button>
       </div>
+
       {/* // ... other code */}
       <div className="p-6">
-        <HiOutlineBadgeCheck />
-        <h3 className="font-bold text-2xl mb-2">
+        {/* <HiOutlineBadgeCheck /> */}
+        <h3 className="font-bold text-2xl mb-2 border-b">
           {context.productToShow?.title}
         </h3>
-        <p className="flex justify-between items-center font-medium text-lg mb-2">
-          <HiOutlineCash /> ${context.productToShow?.price}
-        </p>
-        <p className="flex justify-between items-center font-light text-sm mb-2">
-          <HiOutlineBadgeCheck /> Brand: {context.productToShow?.brand}
-        </p>
-        <p className="flex justify-between items-center font-light text-sm mb-2">
-          Category: {context.productToShow?.category}
-        </p>
-        <p className="flex justify-between items-center font-light text-sm mb-2">
-          <HiOutlineTag /> Discount: {context.productToShow?.discountPercentage}{" "}
-          %
-        </p>
-        <p className="flex justify-between items-center font-light text-sm mb-2">
-          <HiOutlineIdentification /> Id: {context.productToShow?.id}
-        </p>
-        <p className="flex justify-between items-center font-light text-sm mb-2">
-          <HiOutlineStar /> Rating: {context.productToShow?.rating}
-        </p>
-        <p className="flex justify-between items-center font-light text-sm mb-2">
-          <HiOutlineTruck /> Stock: {context.productToShow?.stock}
-        </p>
-        <HiOutlinePhotograph />
-        <p className="flex justify-between items-center font-light text-sm mb-2">
-          Thumbnail: {context.productToShow?.thumbnail}
-        </p>
-        <HiOutlineDocumentText />
-        <p className="flex justify-between items-center font-light text-sm mb-2">
-          Description:
+
+        {/* table */}
+
+        <table className="table-auto w-full mt-4">
+          <tbody className="text-gray-700">
+            <tr>
+              <td className={tdElements}>
+                <HiOutlineCash /> Price
+              </td>
+              <td>${context.productToShow?.price}</td>
+            </tr>
+            <tr>
+              <td className={tdElements}>
+                <HiOutlineBadgeCheck /> Brand
+              </td>
+              <td>{context.productToShow?.brand}</td>
+            </tr>
+            <tr>
+              <td className={tdElements}>
+                <HiOutlinePhotograph />
+                Category
+              </td>
+              <td>{context.productToShow?.category}</td>
+            </tr>
+            <tr>
+              <td className={tdElements}>
+                <HiOutlineTag /> Discount
+              </td>
+              <td>{context.productToShow?.discountPercentage} %</td>
+            </tr>
+            <tr>
+              <td className={tdElements}>
+                <HiOutlineStar /> Rating
+              </td>
+              <td>{context.productToShow?.rating}</td>
+            </tr>
+            <tr>
+              <td className={tdElements}>
+                <HiOutlineTruck /> Stock
+              </td>
+              <td>{context.productToShow?.stock} available</td>
+            </tr>
+            {/* <tr>
+              <td className={tdElements}>Thumbnail</td>
+              <td>{context.productToShow?.thumbnail}</td>
+            </tr> */}
+          </tbody>
+        </table>
+        {/* end table */}
+        <div className={tdElements}>
+          <HiOutlineDocumentText />
+          <p className="mb-1 mt-2">Description</p>
+        </div>
+        <p className="text-gray-700 text-base">
           {context.productToShow?.description}
         </p>
         <button className="flex justify-center gap-2 items-center w-full bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300">
