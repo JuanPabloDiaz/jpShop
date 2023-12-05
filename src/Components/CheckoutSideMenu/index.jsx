@@ -55,17 +55,24 @@ const CheckoutSideMenu = () => {
         </div>
       </div>
       <div className="px-6 overflow-y-scroll flex-1">
-        {context.cartProducts.map((product) => (
-          <OrderCard
-            key={product.id}
-            id={product.id}
-            title={product.title.split(" ").slice(0, 3).join(" ")}
-            imageUrl={product.images[0]}
-            price={product.price}
-            quantity={product.quantity}
-            handleDeleteProduct={handleDeleteProduct}
-          />
-        ))}
+        {/* product && product.id && product.title && product.images && product.price && product.quantity checks if product and all the properties you're trying to access on product are defined. If any of them is undefined, it will not try to render the OrderCard component and avoid the error */}
+        {context.cartProducts.map((product) =>
+          product &&
+          product.id &&
+          product.title &&
+          product.images &&
+          product.price ? (
+            <OrderCard
+              key={product.id}
+              id={product.id}
+              title={product.title.split(" ").slice(0, 3).join(" ")}
+              imageUrl={product.images[0]}
+              price={product.price}
+              // quantity={product.quantity}
+              handleDeleteProduct={handleDeleteProduct}
+            />
+          ) : null
+        )}
       </div>
       <div className="p-6">
         <p className="flex justify-around items-center">
