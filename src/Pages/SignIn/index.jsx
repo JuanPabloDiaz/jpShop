@@ -12,7 +12,7 @@ function SignIn() {
     e.preventDefault();
     // console.log("username: ", username);
     // console.log("password: ", password);
-    auth.login({ username, password });
+    auth.login(username, password);
   };
 
   return (

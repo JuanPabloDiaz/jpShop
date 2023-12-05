@@ -8,9 +8,13 @@ function AuthProvider({ children }) {
   const [user, setUser] = React.useState(null);
 
   const login = (username, password) => {
+    if (typeof username !== "string") {
+      throw new Error("Username must be a string");
+    }
     setUser({ username, password });
     navigate("/my-account");
   };
+
   const logout = () => {
     setUser(null);
     navigate("/");
