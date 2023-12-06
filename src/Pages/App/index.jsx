@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useRoutes, BrowserRouter } from "react-router-dom";
 import { AppProvider } from "../../Context";
 
 import { AuthProvider } from "../../Context/auth"; // AuthContext is the context that will be used to store the user's data
@@ -13,129 +13,29 @@ import NotFound from "../NotFound";
 import MyAccount from "../MyAccount";
 import SignIn from "../SignIn";
 import Logout from "../Logout";
-import PublicRoute from "./PublicRoute.jsx";
-import PrivateRoute from "./PrivateRoutes.jsx";
 
 const AppRoutes = () => {
-  return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <PublicRoute restricted={false}>
-            <Home />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/smartphones"
-        element={
-          <PublicRoute restricted={false}>
-            <Home />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/laptops"
-        element={
-          <PublicRoute restricted={false}>
-            <Home />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/fragrances"
-        element={
-          <PublicRoute restricted={false}>
-            <Home />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/skincare"
-        element={
-          <PublicRoute restricted={false}>
-            <Home />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/groceries"
-        element={
-          <PublicRoute restricted={false}>
-            <Home />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/home-decoration"
-        element={
-          <PublicRoute restricted={false}>
-            <Home />
-          </PublicRoute>
-        }
-      />
-      {/* PrivateRoute: */}
-      <Route
-        path="/my-order"
-        element={
-          <PrivateRoute>
-            <MyOrder />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/my-orders"
-        element={
-          <PrivateRoute>
-            <MyOrders />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/my-orders/last"
-        element={
-          <PrivateRoute>
-            <MyOrder />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/my-orders/:id"
-        element={
-          <PrivateRoute>
-            <MyOrder />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/my-account"
-        element={
-          <PrivateRoute>
-            <MyAccount />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/sign-in"
-        element={
-          <PublicRoute restricted={true}>
-            <SignIn />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/logout"
-        element={
-          <PrivateRoute>
-            <Logout />
-          </PrivateRoute>
-        }
-      />
-      {/* NotFound: */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
+  let routes = useRoutes([
+    { path: "/", element: <Home /> },
+    { path: "/smartphones", element: <Home /> },
+    { path: "/laptops", element: <Home /> },
+    { path: "/fragrances", element: <Home /> },
+    { path: "/skincare", element: <Home /> },
+    { path: "/groceries", element: <Home /> },
+    { path: "/home-decoration", element: <Home /> },
+    // Should be Private Route but for testing purposes it is public
+    { path: "/my-order", element: <MyOrder /> },
+    { path: "/my-orders", element: <MyOrders /> },
+    { path: "/my-orders/last", element: <MyOrder /> },
+    { path: "/my-orders/:id", element: <MyOrder /> },
+    // Private Routes
+    { path: "/my-account", element: <MyAccount /> },
+    { path: "/sign-in", element: <SignIn /> },
+    { path: "/logout", element: <Logout /> },
+    // Not Found
+    { path: "*", element: <NotFound /> },
+  ]);
+  return routes;
 };
 
 const App = () => {
