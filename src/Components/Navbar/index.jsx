@@ -3,10 +3,13 @@ import { useContext, useState } from "react";
 import { AppContext } from "../../Context";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useScrollPosition } from "../../Utils/useScrollPosition";
+import { useAuth } from "../../Context/auth";
 
 const Navbar = () => {
   const activeStyle = "underline text-gray-500 underline-offset-4";
   const context = useContext(AppContext);
+
+  //scrollPosition:
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdownTech, setShowDropdownTech] = useState(false);
 
@@ -16,6 +19,10 @@ const Navbar = () => {
 
   const scrollPosition = useScrollPosition();
   // console.log(scrollPosition);
+
+  // AuthContext:
+  const auth = useAuth();
+  console.log("in Navbar, Auth.user: ", auth.user);
 
   return (
     <header
@@ -42,7 +49,6 @@ const Navbar = () => {
               All
             </NavLink>
           </li>
-
           <li onClick={() => setShowDropdownTech(!showDropdownTech)}>
             Electronics
             {showDropdownTech && (
@@ -93,7 +99,6 @@ const Navbar = () => {
               </div>
             )}
           </li>
-
           <li>
             <NavLink
               to="/groceries"
@@ -123,22 +128,6 @@ const Navbar = () => {
               My Orders
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink
-              to="/my-account"
-              className={({ isActive }) => (isActive ? activeStyle : undefined)}
-            >
-              My Account
-            </NavLink>
-          </li> */}
-          {/* <li>
-          <NavLink
-            to="/sign-in"
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            Sign In
-          </NavLink>
-        </li> */}
           <li>
             <NavLink
               to="/card"
@@ -149,6 +138,43 @@ const Navbar = () => {
               <p>{context.cartProducts.length}</p>
             </NavLink>
           </li>
+        </ul>
+        <ul className="hidden sm:flex items-center gap-3">
+          {auth.user && (
+            <li>
+              <NavLink
+                to="/my-account"
+                className={({ isActive }) =>
+                  isActive ? activeStyle : undefined
+                }
+              >
+                My Account
+              </NavLink>
+            </li>
+          )}
+          {auth.user ? (
+            <li>
+              <NavLink
+                to="/Logout"
+                className={({ isActive }) =>
+                  isActive ? activeStyle : undefined
+                }
+              >
+                Logout
+              </NavLink>
+            </li>
+          ) : (
+            <li>
+              <NavLink
+                to="/sign-in"
+                className={({ isActive }) =>
+                  isActive ? activeStyle : undefined
+                }
+              >
+                Sign In
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

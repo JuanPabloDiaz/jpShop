@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import Layout from "../../Components/Layout";
-import { useAuth } from "../../Context/auth";
 
-function SignIn() {
-  const auth = useAuth(); // console.log("auth: ", auth);
-
+function SignIn({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  console.log("username: ", username);
+  console.log("password: ", password);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // console.log("username: ", username);
-    // console.log("password: ", password);
-    auth.login(username, password);
-    //    onLogin(username, password); this is from copilot-signin. and onlogin needs to be passed in as a prop. at the beginning of... function SignIn({ onLogin }) {
+    onLogin(username, password);
   };
 
   return (
