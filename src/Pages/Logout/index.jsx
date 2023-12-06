@@ -3,17 +3,17 @@ import { useAuth } from "../../Context/auth";
 
 const Logout = () => {
   const auth = useAuth();
-  const handleLogout = (e) => {
-    e.preventDefault();
-    auth.logout();
-    console.log("You have been logged out.");
-  };
+  // const handleLogout = (e) => {
+  //   e.preventDefault();
+  //   auth.logout();
+  //   console.log("You have been logged out.");
+  // };
   return (
     <Layout>
       <div className="flex items-center justify-center relative mb-4">
         <h1 className="font-medium text-md sm:text-xl">Sign Out</h1>
       </div>
-      <form
+      {/* <form
         onSubmit={handleLogout}
         className="flex flex-col justify-center items-center w-screen h-screen gap-5"
       >
@@ -23,7 +23,7 @@ const Logout = () => {
         >
           Sign Out
         </button>
-      </form>
+      </form> */}
     </Layout>
   );
 };

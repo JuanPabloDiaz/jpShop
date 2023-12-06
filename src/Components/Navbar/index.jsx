@@ -4,6 +4,7 @@ import { AppContext } from "../../Context";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useScrollPosition } from "../../Utils/useScrollPosition";
 import { useAuth } from "../../Context/auth";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const activeStyle = "underline text-gray-500 underline-offset-4";
@@ -24,6 +25,28 @@ const Navbar = () => {
   const auth = useAuth();
   console.log("in Navbar, Auth.user: ", auth.user);
 
+  // Navigate:
+  let navigate = useNavigate();
+
+  // logout:
+  // const handleLogout = (e) => {
+  //   e.preventDefault();
+  //   auth.logout();
+  //   console.log("You have been logged out.");
+  //   navigate("/"); // Redirect to home page after logout
+  // };
+  // logout with confirmation (window.confirm)
+  // window.confirm() function to display a confirmation dialog when the user clicks on the logout button
+  const handleLogout = (e) => {
+    e.preventDefault();
+    if (
+      window.confirm(`${auth.user.username}, Are you sure you want to logout?`)
+    ) {
+      auth.logout();
+      console.log("You have been logged out.");
+      navigate("/"); // Redirect to home page after logout
+    }
+  };
   return (
     <header
       className={classNamesNavBarScroll(
@@ -154,7 +177,8 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/Logout"
+                  // to="/Logout"
+                  onClick={handleLogout}
                   className={({ isActive }) =>
                     isActive ? activeStyle : undefined
                   }

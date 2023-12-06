@@ -12,7 +12,7 @@ import MyOrders from "../MyOrders";
 import NotFound from "../NotFound";
 import MyAccount from "../MyAccount";
 import SignIn from "../SignIn";
-import Logout from "../Logout";
+// import Logout from "../Logout";
 
 // Implementing the Private and Public Routes:
 import { useAuth } from "../../Context/auth"; // make sure you have a useAuth hook in your auth context
@@ -77,14 +77,14 @@ const AppRoutes = () => {
         </PrivateRoute>
       ),
     },
-    {
-      path: "/logout",
-      element: (
-        <PrivateRoute>
-          <Logout />
-        </PrivateRoute>
-      ),
-    },
+    // {
+    //   path: "/logout",
+    //   element: (
+    //     <PrivateRoute>
+    //       <Logout />
+    //     </PrivateRoute>
+    //   ),
+    // },
     // Public Routes
     {
       path: "/sign-in",
