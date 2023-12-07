@@ -5,6 +5,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useScrollPosition } from "../../Utils/useScrollPosition";
 import { useAuth } from "../../Context/auth";
 import { useNavigate } from "react-router-dom";
+import logo from "../../../public/assets/images/logo.svg";
 
 const Navbar = () => {
   const activeStyle = "underline text-gray-500 underline-offset-4";
@@ -66,8 +67,7 @@ const Navbar = () => {
               className="flex items-center gap-3"
             >
               <img
-                src="../../../public/assets/images/jplogo.svg"
-                // src="../../../public/assets/images/logo.svg"
+                src={logo}
                 alt="logo"
                 className="w-14 h-14"
                 // className="w-10 h-10 sm:w-8 sm:h-8"
