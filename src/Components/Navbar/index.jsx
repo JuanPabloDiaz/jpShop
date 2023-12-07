@@ -51,18 +51,34 @@ const Navbar = () => {
     <header
       className={classNamesNavBarScroll(
         scrollPosition > 0
-          ? "md:shadow md:bg-white md:-translate-y-6 md:h-auto"
+          ? "md:shadow md:bg-white md:-translate-y-6 md:h-auto top-6"
           : "md:shadow-none md:bg-none md:translate-y-0 md:h-none",
-        "absolute md:fixed top-2 inset-x-0 z-40 md:transition-shadow-xl md:shadow-black md:transition-color duration-500 md:-translate-y-6 md:h-20 lg:h-14"
+        "absolute md:fixed top-4 inset-x-0 z-40 md:transition-shadow-xl md:shadow-black md:transition-color duration-500 md:-translate-y-6 md:h-20 lg:h-14"
       )}
     >
-      <nav className="hidden sm:flex flex-col sm:flex-row justify-between items-center fixed z-10 w-full py-5 px-8 text-md font-light top-0">
+      {/* <nav className="hidden sm:flex flex-col sm:flex-row justify-between items-center fixed z-10 w-full py-5 px-8 text-md font-light top-0"> */}
+      <nav className="hidden sm:flex flex-col sm:flex-row justify-between items-center fixed z-10 w-full py-0 px-8 text-md font-light top-0">
         <ul className="flex flex-col sm:flex-row items-center gap-3">
           <li className="font-semibold text-lg">
+            <NavLink
+              to="/"
+              onClick={() => context.setSearchByCategory(null)}
+              className="flex items-center gap-3"
+            >
+              <img
+                src="/public/assets/images/logo.svg"
+                alt="logo"
+                className="w-14 h-14"
+                // className="w-10 h-10 sm:w-8 sm:h-8"
+              />
+              <span>JP·Shop</span>
+            </NavLink>
+          </li>
+          {/* <li className="font-semibold text-lg">
             <NavLink to="/" onClick={() => context.setSearchByCategory(null)}>
               JP·Shop
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to="/"
