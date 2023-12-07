@@ -66,7 +66,7 @@ const Navbar = () => {
               className="flex items-center gap-3"
             >
               <img
-                src="/public/assets/images/logo.svg"
+                src="../../../public/assets/images/logo.svg"
                 alt="logo"
                 className="w-14 h-14"
                 // className="w-10 h-10 sm:w-8 sm:h-8"
