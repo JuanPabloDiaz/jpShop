@@ -7,7 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton"; // import the Skeleton comp
 
 const Home = () => {
   const context = useContext(AppContext);
-
+  console.log("context.isLoading: ", context.isLoading);
   const renderView = () => {
     // if there are items in the filteredItems array, render them
     // Filter by title and category
@@ -15,15 +15,16 @@ const Home = () => {
     // Skeleton while data is loading
     if (context.isLoading) {
       // if data is still loading, render the Skeleton
-      console.log("Rendering Skeleton");
+      // console.log("Rendering Skeleton");
       // Create an array of 10 skeletons (or however many you expect to display)
       return Array(15)
         .fill()
         .map((_, i) => (
           <>
             {/* card: */}
-            <Skeleton key={i} className="w-56 h-60 rounded-lg bg-slate-200">
-              <Skeleton className="relative m-2 p-1 bg-slate-300/50 h-44">
+            <Skeleton key={i} className="w-56 h-60 rounded-lg">
+              {/* image: */}
+              <Skeleton className="relative m-2 p-1 bg-slate-300/30 h-44 rounded-xl">
                 <div className="flex justify-end h-36">
                   {/* circle: */}
                   <Skeleton className="h-8 w-8 rounded-full" />
@@ -33,9 +34,9 @@ const Home = () => {
               </Skeleton>
               <div className="flex justify-around items-center h-10">
                 {/* title: */}
-                <Skeleton className="h-5 w-20" />
+                <Skeleton className="h-5 w-20 bg-slate-200" />
                 {/* price: */}
-                <Skeleton className="h-5 w-16" />
+                <Skeleton className="h-5 w-16 bg-slate-200" />
               </div>
             </Skeleton>
           </>

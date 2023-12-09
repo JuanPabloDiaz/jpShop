@@ -6,15 +6,23 @@ export const AppProvider = ({ children }) => {
   // Get Products · State to store the data from the dummy API. It's an empty array because the data is an array of objects
   // Fetch data from API · hook to add the info from the API to the state
   const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false); // Loading state
 
   // UseEffect is a hook to fetch the data from the API
   useEffect(() => {
+    setIsLoading(true); // Set isLoading to true before fetching data
+
     fetch("https://dummyjson.com/products")
       .then((response) => response.json())
       .then((json) => {
         // console.log("Data from Dummy API: ", json); // Log the data
         // console.log("Products inside Data Dummy API: ", json.products); // Products is an array of objects inside the data from the API
         setItems(json.products); // Add the data to the state (setItems) and specify the data to be added (json.products)
+        setIsLoading(false); // Set isLoading to false after fetching data
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        setIsLoading(false); // Set isLoading to false even if there was an error
       });
   }, []);
 
@@ -162,6 +170,7 @@ export const AppProvider = ({ children }) => {
         searchByCategory,
         setSearchByCategory,
         addProductToCart,
+        isLoading,
       }}
     >
       {children}
