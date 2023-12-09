@@ -24,6 +24,7 @@ const Card = (data) => {
   // };
 
   // Check if the product is in the cart:
+
   const renderIcon = (id) => {
     if (data && data.data && data.data.id) {
       const productIsInCart =
