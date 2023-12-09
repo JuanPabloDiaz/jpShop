@@ -24,7 +24,7 @@ const Navbar = () => {
 
   // AuthContext:
   const auth = useAuth();
-  console.log("in Navbar, Auth.user: ", auth.user);
+  // console.log("in Navbar, Auth.user: ", auth.user);
 
   // Navigate:
   let navigate = useNavigate();
