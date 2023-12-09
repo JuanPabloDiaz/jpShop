@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useRoutes, BrowserRouter, Navigate } from "react-router-dom";
 import { AppProvider } from "../../Context";
 
@@ -22,9 +23,16 @@ const PrivateRoute = ({ children }) => {
   return user ? children : <Navigate to="/sign-in" />;
 };
 
+PrivateRoute.propTypes = {
+  children: PropTypes.node,
+};
+
 const PublicRoute = ({ children }) => {
   const { user } = useAuth();
   return user ? <Navigate to="/" /> : children;
+};
+PublicRoute.propTypes = {
+  children: PropTypes.node,
 };
 
 const AppRoutes = () => {

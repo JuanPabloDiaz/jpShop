@@ -20,9 +20,9 @@ const Home = () => {
       return Array(15)
         .fill()
         .map((_, i) => (
-          <>
+          <div key={i}>
             {/* card: */}
-            <Skeleton key={i} className="w-56 h-60 rounded-lg">
+            <Skeleton className="w-56 h-60 rounded-lg">
               {/* image: */}
               <Skeleton className="relative m-2 p-1 bg-slate-300/30 h-44 rounded-xl">
                 <div className="flex justify-end h-36">
@@ -39,7 +39,7 @@ const Home = () => {
                 <Skeleton className="h-5 w-16 bg-slate-200" />
               </div>
             </Skeleton>
-          </>
+          </div>
         ));
     } else if (context.filteredItems?.length > 0) {
       return context.filteredItems?.map((item) => (
