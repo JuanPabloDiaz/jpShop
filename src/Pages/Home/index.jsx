@@ -7,7 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton"; // import the Skeleton comp
 
 const Home = () => {
   const context = useContext(AppContext);
-  console.log("context.isLoading: ", context.isLoading);
+  // console.log("context.isLoading: ", context.isLoading);
   const renderView = () => {
     // if there are items in the filteredItems array, render them
     // Filter by title and category
