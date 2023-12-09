@@ -9,8 +9,8 @@ const MyAccount = () => {
         <h1 className="font-medium text-md sm:text-xl">My Account</h1>
         <p className="font-semibold text-2xl">Welcome, {auth.user.username}</p>
 
-        {console.log("username: ", auth.user.username)}
-        {console.log("password: ", auth.user.password)}
+        {/* {console.log("username: ", auth.user.username)}
+        {console.log("password: ", auth.user.password)} */}
       </div>
     </Layout>
   );

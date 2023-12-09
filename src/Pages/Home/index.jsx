@@ -3,14 +3,45 @@ import Card from "../../Components/Card";
 import Layout from "../../Components/Layout";
 import ProductDetail from "../../Components/ProductDetail";
 import { AppContext } from "../../Context";
+import { Skeleton } from "../../Components/ui/skeleton"; // import the Skeleton component
 
 const Home = () => {
   const context = useContext(AppContext);
-
+  // console.log("context.isLoading: ", context.isLoading);
   const renderView = () => {
     // if there are items in the filteredItems array, render them
     // Filter by title and category
-    if (context.filteredItems?.length > 0) {
+
+    // Skeleton while data is loading
+    if (context.isLoading) {
+      // if data is still loading, render the Skeleton
+      // console.log("Rendering Skeleton");
+      // Create an array of 10 skeletons (or however many you expect to display)
+      return Array(15)
+        .fill()
+        .map((_, i) => (
+          <div key={i}>
+            {/* card: */}
+            <Skeleton className="w-56 h-60 rounded-lg">
+              {/* image: */}
+              <Skeleton className="relative m-2 p-1 bg-slate-300/30 h-44 rounded-xl">
+                <div className="flex justify-end h-36">
+                  {/* circle: */}
+                  <Skeleton className="h-8 w-8 rounded-full" />
+                </div>
+                {/* category: */}
+                <Skeleton className="absolute bottom-0 rounded-lg m-2 py-2 px-2 w-16" />
+              </Skeleton>
+              <div className="flex justify-around items-center h-10">
+                {/* title: */}
+                <Skeleton className="h-5 w-20 bg-slate-200" />
+                {/* price: */}
+                <Skeleton className="h-5 w-16 bg-slate-200" />
+              </div>
+            </Skeleton>
+          </div>
+        ));
+    } else if (context.filteredItems?.length > 0) {
       return context.filteredItems?.map((item) => (
         <Card key={item.id} data={item} />
       ));
