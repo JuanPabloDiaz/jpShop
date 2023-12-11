@@ -1,37 +1,34 @@
-<div id="top"></div>
+# Jp·Shop: A React-powered online store for a seamless shopping experience
 
-# Curso de React.js con Vite.js y TailwindCSS
+Jp·Shop is a fully responsive online store that leverages the power of React, Vite.js, Tailwind CSS, and React Router DOM to deliver a seamless shopping experience. It's a modern, sleek, and efficient web application that allows users to view products, filter by category, and purchase orders with ease.
 
-This repo contain all the info from the course I took in Platzi regarding how to create an E-commerce site using React.js, Vite.js and TailwindCSS . The course name is: "[Curso de React.js con Vite.js y TailwindCSS](https://platzi.com/cursos/react-vite-tailwindcss/)".
+It has a login page feature that allows users to sign in and access their account. This feature mimics the workflow and functionality of a real login page, but it does not actually authenticate users.
 
-<!-- ABOUT THE PROJECT -->
+It also has a shopping cart feature that allows users to add products to their cart and proceed to checkout. The application is fully integrated with the Dummy API, ensuring that users get the latest and greatest products.
 
-## Description 💡
+Jp·Shop is not just an interface; it's an experience. ️It's simple, stylish, and fast, making online shopping a breeze.
 
-Build an Online Store with React.js, the most in-demand tool for frontend developers. It integrates Vite.js for the development environment, TailwindCSS for style management and React Router DOM for routes and navigation. Transform Figma prototypes into professional web applications and deploy them to production with your Teffcode teacher.
+[![Jp·Shop](https://img.shields.io/badge/View%20Demo-000?style=for-the-badge&logo=Google-Chrome&logoColor=white)](https://jpshop.jpdiaz.dev/)
 
-- Build components to view products, purchase orders and filter by category
-- Implement client-side navigation with React Router.
-- Consume the Platzi Fake Store using React.js.
-
-<!-- OTHER PROJECTS -->
-
-## Projects 🚀
-
-![](https://img.shields.io/badge/Platzi_Repos-121f3d?style=for-the-badge&logo=Platzi&logoColor=98CA3F)
-[![](https://img.shields.io/badge/2021-222?style=for-the-badge)](https://github.com/JuanPabloDiaz/platzi/tree/main/2021)
-[![](https://img.shields.io/badge/2022-222?style=for-the-badge)](https://github.com/JuanPabloDiaz/platzi/tree/main/2022)
-[![](https://img.shields.io/badge/2023-222?style=for-the-badge)](https://github.com/JuanPabloDiaz/platzi/tree/main/2023)
+[![Jp·Shop](https://img.shields.io/badge/View%20Code-000?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/JuanPabloDiaz/jpShop)
 
 ### Built With 🔑
 
-This project is based on React.js con Vite.js y TailwindCSS
+This project is based on React con Vite.js & TailwindCSS
 
 ![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-646CFF.svg?style=for-the-badge&logo=Vite&logoColor=white)
 ![Tailwind-CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white)
 ![React-Router](https://img.shields.io/badge/React%20Router-CA4245.svg?style=for-the-badge&logo=React-Router&logoColor=white)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E.svg?style=for-the-badge&logo=Figma&logoColor=white)
+
+React: for a seamless user experience. Vite.js: for lightning-fast development and performance. Tailwind CSS: for sleek and efficient design. React Router DOM: for effortless navigation. API Integration: ensuring you get the latest and greatest products.
+
+Here's a closer look at the tech stack:
+
+- Front-End: React.js, Vite.js, Tailwind CSS
+- Back-End: API Integration (RESTful)
+- Deployment: Vercel
 
 <!-- LICENSE -->
 
@@ -55,7 +52,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Resources list that I find helpful and would like to give credit to.
 
-<p align="right">(<a href="#top">👆 Top 👆</a>)</p>
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Vite.js Documentation](https://vitejs.dev/guide/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [React Router DOM Documentation](https://reactrouter.com/web/guides/quick-start)
+- [Platzi](https://platzi.com/)
