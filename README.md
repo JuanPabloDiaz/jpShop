@@ -2,7 +2,7 @@
 
 Jp·Shop is a fully responsive online store that leverages the power of React, Vite.js, Tailwind CSS, and React Router DOM to deliver a seamless shopping experience. It's a modern, sleek, and efficient web application that allows users to view products, filter by category, and purchase orders with ease.
 
-Jp·Shop has a login feature that allows users to sign in and access additional content such as their account and previous orders. This feature mimics the workflow and functionality of a real login page, but it does not actually authenticate users.
+Jp·Shop has a login feature that allows users to sign in and access additional content, such as their account and previous orders. This feature mimics the workflow and functionality of a real login page, but it does not actually authenticate users.
 
 It also has a Skeleton Loading feature that provides a better user experience by showing a loading animation while the content is being fetched. This feature ensures that users are aware that the content is loading and reduces the perceived loading time.
 
@@ -18,11 +18,11 @@ Jp·Shop is not just an interface; it's an experience. ️It's simple, stylish, 
 
 This project is a fully responsive web application that allows users to:
 
-- View a wide range of products
-- Filter products by category
-- Add products to their shopping cart
-- Proceed to checkout and complete their purchase
-- Sign in and access their account (mimicking real login functionality without authentication)
+- View a wide range of products.
+- Filter products by category.
+- Add products to their shopping cart.
+- Proceed to checkout and complete their purchase.
+- Sign in and access their account (mimicking real login functionality without authentication).
 
 ## Features:
 
