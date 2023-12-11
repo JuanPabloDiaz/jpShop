@@ -2,9 +2,11 @@
 
 Jp·Shop is a fully responsive online store that leverages the power of React, Vite.js, Tailwind CSS, and React Router DOM to deliver a seamless shopping experience. It's a modern, sleek, and efficient web application that allows users to view products, filter by category, and purchase orders with ease.
 
-It has a login page feature that allows users to sign in and access their account. This feature mimics the workflow and functionality of a real login page, but it does not actually authenticate users.
+Jp·Shop has a login feature that allows users to sign in and access additional content such as their account and previous orders. This feature mimics the workflow and functionality of a real login page, but it does not actually authenticate users.
 
-It also has a shopping cart feature that allows users to add products to their cart and proceed to checkout. The application is fully integrated with the Dummy API, ensuring that users get the latest and greatest products.
+It also has a Skeleton Loading feature that provides a better user experience by showing a loading animation while the content is being fetched. This feature ensures that users are aware that the content is loading and reduces the perceived loading time.
+
+It has a shopping cart feature that allows users to add products to their cart and proceed to checkout. The application is fully integrated with the Dummy API, ensuring that users get the latest and greatest products.
 
 Jp·Shop is not just an interface; it's an experience. ️It's simple, stylish, and fast, making online shopping a breeze.
 
@@ -31,6 +33,8 @@ This project is a fully responsive web application that allows users to:
 - Shopping cart: Add and remove items from your cart with ease.
 - Dummy API integration: Stay up-to-date with the latest products through the integrated Dummy API.
 - Login functionality (mimicked): Experience the login process without actual authentication.
+- Skeleton loading: Enjoy a better user experience with loading animations while content is being fetched.
+- Dropdown menu: Easily navigate through different product categories.
 
 ### Built With 🔑
 
