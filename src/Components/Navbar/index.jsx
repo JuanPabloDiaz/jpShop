@@ -9,6 +9,10 @@ import logo from "../../../public/assets/images/logo.svg";
 
 const Navbar = () => {
   const activeStyle = "underline text-gray-500 underline-offset-4";
+  const hoverStyle = "hover:text-gray-500 transition-colors duration-100";
+  const dropdownStyle =
+    "absolute flex flex-col gap-2 w-36 py-2 px-1 transition-all duration-300 transform scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 bg-white text-black rounded-b-md shadow-md shadow-gray-500 z-50";
+
   const context = useContext(AppContext);
 
   //scrollPosition:
@@ -75,12 +79,7 @@ const Navbar = () => {
               <span>JP·Shop</span>
             </NavLink>
           </li>
-          {/* <li className="font-semibold text-lg">
-            <NavLink to="/" onClick={() => context.setSearchByCategory(null)}>
-              JP·Shop
-            </NavLink>
-          </li> */}
-          <li>
+          <li className={hoverStyle}>
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -89,24 +88,26 @@ const Navbar = () => {
               All
             </NavLink>
           </li>
-          <li onClick={() => setShowDropdownTech(!showDropdownTech)}>
+          <li
+            onMouseEnter={() => setShowDropdownTech(true)}
+            onMouseLeave={() => setShowDropdownTech(false)}
+            className={`relative group cursor-pointer ${hoverStyle}`}
+          >
             Electronics
             {showDropdownTech && (
-              <div>
+              <div className={dropdownStyle}>
                 <NavLink
                   to="/smartphones"
-                  className={({ isActive }) =>
-                    isActive ? activeStyle : undefined
-                  }
+                  className={`${hoverStyle} ${({ isActive }) =>
+                    isActive ? activeStyle : undefined}`}
                   onClick={() => context.setSearchByCategory("smartphones")}
                 >
                   Phone
                 </NavLink>
                 <NavLink
                   to="/laptops"
-                  className={({ isActive }) =>
-                    isActive ? activeStyle : undefined
-                  }
+                  className={`${hoverStyle} ${({ isActive }) =>
+                    isActive ? activeStyle : undefined}`}
                   onClick={() => context.setSearchByCategory("laptops")}
                 >
                   Laptop
@@ -114,24 +115,26 @@ const Navbar = () => {
               </div>
             )}
           </li>
-          <li onClick={() => setShowDropdown(!showDropdown)}>
+          <li
+            onMouseEnter={() => setShowDropdown(true)}
+            onMouseLeave={() => setShowDropdown(false)}
+            className={`relative group cursor-pointer ${hoverStyle}`}
+          >
             Cosmetics
             {showDropdown && (
-              <div>
+              <div className={dropdownStyle}>
                 <NavLink
                   to="/fragrances"
-                  className={({ isActive }) =>
-                    isActive ? activeStyle : undefined
-                  }
+                  className={`${hoverStyle} ${({ isActive }) =>
+                    isActive ? activeStyle : undefined}`}
                   onClick={() => context.setSearchByCategory("fragrances")}
                 >
                   Perfumes
                 </NavLink>
                 <NavLink
                   to="/skincare"
-                  className={({ isActive }) =>
-                    isActive ? activeStyle : undefined
-                  }
+                  className={`${hoverStyle} ${({ isActive }) =>
+                    isActive ? activeStyle : undefined}`}
                   onClick={() => context.setSearchByCategory("skincare")}
                 >
                   Skin Care
@@ -139,7 +142,7 @@ const Navbar = () => {
               </div>
             )}
           </li>
-          <li>
+          <li className={hoverStyle}>
             <NavLink
               to="/groceries"
               className={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -148,7 +151,7 @@ const Navbar = () => {
               Groceries
             </NavLink>
           </li>
-          <li>
+          <li className={hoverStyle}>
             <NavLink
               to="/home-decoration"
               className={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -161,7 +164,7 @@ const Navbar = () => {
         <ul className="hidden sm:flex items-center gap-3">
           {auth.user && (
             <>
-              <li>
+              <li className={hoverStyle}>
                 <NavLink
                   to="/my-account"
                   className={({ isActive }) =>
@@ -171,7 +174,7 @@ const Navbar = () => {
                   My Account
                 </NavLink>
               </li>
-              <li>
+              <li className={hoverStyle}>
                 <NavLink
                   to="/my-orders"
                   className={({ isActive }) =>
@@ -181,7 +184,7 @@ const Navbar = () => {
                   My Orders
                 </NavLink>
               </li>
-              <li>
+              <li className={hoverStyle}>
                 <NavLink
                   to="/card"
                   className={`flex justify-center items-center ${({
@@ -206,7 +209,7 @@ const Navbar = () => {
             </>
           )}
           {!auth.user && (
-            <li>
+            <li className={hoverStyle}>
               <NavLink
                 to="/sign-in"
                 className={({ isActive }) =>
