@@ -10,16 +10,16 @@ const OrderCard = (props) => {
     renderTrash = (
       <HiOutlineTrash
         onClick={() => handleDeleteProduct(id)}
-        className="cursor-pointer hover:text-gray-500 rounded-full"
+        className="cursor-pointer rounded-full hover:text-gray-500"
       />
     );
   }
   return (
-    <div className="flex justify-between items-center border hover:shadow-sm hover:shadow-black trasition duration-300 rounded-lg my-1">
+    <div className="trasition my-1 flex items-center justify-between rounded-lg border duration-300 hover:shadow-sm hover:shadow-black">
       <div className="flex items-center gap-2">
-        <figure className="w-20 h-20 m-0.5">
+        <figure className="m-0.5 h-20 w-20">
           <img
-            className="w-full h-full rounded-lg object-cover"
+            className="h-full w-full rounded-lg object-cover"
             src={imageUrl}
             alt={title}
           />
@@ -28,7 +28,7 @@ const OrderCard = (props) => {
       </div>
       <div className="flex gap-2"></div> {/* add quantity values here */}
       <p className="flex text-lg font-medium">${String(price).slice(0, 4)}</p>
-      <div className="flex flex-col items-center h-20 p-0.5">
+      <div className="flex h-20 flex-col items-center p-0.5">
         {/* <>
           <HiPlusSm className="bg-white rounded-full w-6 h-6" />
         </>

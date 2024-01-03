@@ -16,16 +16,16 @@ const MyOrder = () => {
   }
   return (
     <Layout>
-      <div className="flex items-center justify-center relative w-80 mb-4">
+      <div className="relative mb-4 flex w-80 items-center justify-center">
         <Link
           to="/my-orders"
-          className="absolute left-0 bg-slate-200/60 rounded-full p-0.5 hover:bg-slate-300/80 transition duration-300"
+          className="absolute left-0 rounded-full bg-slate-200/60 p-0.5 transition duration-300 hover:bg-slate-300/80"
         >
           <HiChevronLeft className="h-6 w-6 cursor-pointer" />
         </Link>
-        <h1 className="font-medium text-md sm:text-xl">My Order</h1>
+        <h1 className="text-md font-medium sm:text-xl">My Order</h1>
       </div>
-      <div className="flex flex-col w-80">
+      <div className="flex w-80 flex-col">
         {context.order?.[index]?.products.map((product) => (
           <OrderCard
             key={product.id}

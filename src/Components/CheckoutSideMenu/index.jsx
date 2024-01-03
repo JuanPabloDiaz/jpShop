@@ -10,7 +10,7 @@ const CheckoutSideMenu = () => {
 
   const handleDeleteProduct = (id) => {
     const newCartProducts = context.cartProducts.filter(
-      (product) => product.id !== id
+      (product) => product.id !== id,
     );
     context.setCartProducts(newCartProducts);
     context.setCount(context.cart - 1);
@@ -43,18 +43,18 @@ const CheckoutSideMenu = () => {
     <aside
       className={`${
         context.isCheckoutSideMenuOpen ? "flex" : "hidden"
-      } flex-col fixed right-0 top-20 w-[360px] h-min sm:h-[90vh] border border-black shadow-xl shadow-black rounded-lg bg-white sm:bg-white/90 p-2 m-2`}
+      } fixed right-0 top-20 m-2 h-min w-[360px] flex-col rounded-lg border border-black bg-white p-2 shadow-xl shadow-black sm:h-[90vh] sm:bg-white/90`}
     >
-      <div className="flex justify-between items-center p-6">
+      <div className="flex items-center justify-between p-6">
         <h2 className="font-medium">My Order</h2>
         <div>
           <HiOutlineX
-            className="hover:bg-gray-200 rounded-full transition duration-300 cursor-pointer"
+            className="cursor-pointer rounded-full transition duration-300 hover:bg-gray-200"
             onClick={() => context.closeCheckoutSideMenu()}
           />
         </div>
       </div>
-      <div className="px-6 overflow-y-scroll flex-1">
+      <div className="flex-1 overflow-y-scroll px-6">
         {/* product && product.id && product.title && product.images && product.price && product.quantity checks if product and all the properties you're trying to access on product are defined. If any of them is undefined, it will not try to render the OrderCard component and avoid the error */}
         {context.cartProducts.map((product) =>
           product &&
@@ -71,11 +71,11 @@ const CheckoutSideMenu = () => {
               // quantity={product.quantity}
               handleDeleteProduct={handleDeleteProduct}
             />
-          ) : null
+          ) : null,
         )}
       </div>
       <div className="p-6">
-        <p className="flex justify-around items-center">
+        <p className="flex items-center justify-around">
           <span className="font-light">Total</span>
           <span className="font-medium">
             ${totalPrice(context.cartProducts)}
@@ -83,7 +83,7 @@ const CheckoutSideMenu = () => {
         </p>
         <Link to="/my-orders/last">
           <button
-            className="w-full bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300"
+            className="mt-2 w-full rounded-lg bg-black py-2 font-medium text-white transition duration-300 hover:bg-gray-900/50"
             onClick={() => handleCheckout()}
           >
             Checkout

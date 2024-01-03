@@ -10,8 +10,8 @@ const Logout = () => {
   // };
   return (
     <Layout>
-      <div className="flex items-center justify-center relative mb-4">
-        <h1 className="font-medium text-md sm:text-xl">Sign Out</h1>
+      <div className="relative mb-4 flex items-center justify-center">
+        <h1 className="text-md font-medium sm:text-xl">Sign Out</h1>
       </div>
       {/* <form
         onSubmit={handleLogout}

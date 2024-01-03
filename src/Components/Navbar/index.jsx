@@ -56,15 +56,15 @@ const Navbar = () => {
     <header
       className={classNamesNavBarScroll(
         scrollPosition > 0
-          ? "md:shadow md:bg-white md:-translate-y-6 md:h-auto top-6"
-          : "md:shadow-none md:bg-none md:translate-y-0 md:h-none",
-        "absolute md:fixed top-4 inset-x-0 z-40 md:transition-shadow-xl md:shadow-black md:transition-color duration-500 md:-translate-y-6 md:h-20 lg:h-14"
+          ? "top-6 md:h-auto md:-translate-y-6 md:bg-white md:shadow"
+          : "md:h-none md:translate-y-0 md:bg-none md:shadow-none",
+        "md:transition-shadow-xl md:transition-color absolute inset-x-0 top-4 z-40 duration-500 md:fixed md:h-20 md:-translate-y-6 md:shadow-black lg:h-14",
       )}
     >
       {/* <nav className="hidden sm:flex flex-col sm:flex-row justify-between items-center fixed z-10 w-full py-5 px-8 text-md font-light top-0"> */}
-      <nav className="hidden sm:flex flex-col sm:flex-row justify-between items-center fixed z-10 w-full py-0 px-8 text-md font-light top-0">
-        <ul className="flex flex-col sm:flex-row items-center gap-3">
-          <li className="font-semibold text-lg">
+      <nav className="text-md fixed top-0 z-10 hidden w-full flex-col items-center justify-between px-8 py-0 font-light sm:flex sm:flex-row">
+        <ul className="flex flex-col items-center gap-3 sm:flex-row">
+          <li className="text-lg font-semibold">
             <NavLink
               to="/"
               onClick={() => context.setSearchByCategory(null)}
@@ -73,7 +73,7 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="logo"
-                className="w-14 h-14"
+                className="h-14 w-14"
                 // className="w-10 h-10 sm:w-8 sm:h-8"
               />
               <span>JP·Shop</span>
@@ -91,7 +91,7 @@ const Navbar = () => {
           <li
             onMouseEnter={() => setShowDropdownTech(true)}
             onMouseLeave={() => setShowDropdownTech(false)}
-            className={`relative group cursor-pointer ${hoverStyle}`}
+            className={`group relative cursor-pointer ${hoverStyle}`}
           >
             Electronics
             {showDropdownTech && (
@@ -118,7 +118,7 @@ const Navbar = () => {
           <li
             onMouseEnter={() => setShowDropdown(true)}
             onMouseLeave={() => setShowDropdown(false)}
-            className={`relative group cursor-pointer ${hoverStyle}`}
+            className={`group relative cursor-pointer ${hoverStyle}`}
           >
             Cosmetics
             {showDropdown && (
@@ -161,7 +161,7 @@ const Navbar = () => {
             </NavLink>
           </li>
         </ul>
-        <ul className="hidden sm:flex items-center gap-3">
+        <ul className="hidden items-center gap-3 sm:flex">
           {auth.user && (
             <>
               <li className={hoverStyle}>
@@ -187,7 +187,7 @@ const Navbar = () => {
               <li className={hoverStyle}>
                 <NavLink
                   to="/card"
-                  className={`flex justify-center items-center ${({
+                  className={`flex items-center justify-center ${({
                     isActive,
                   }) => (isActive ? activeStyle : undefined)}`}
                 >

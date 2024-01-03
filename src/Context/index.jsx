@@ -74,14 +74,14 @@ export const AppProvider = ({ children }) => {
   // Filter items by search
   const filteredItemsByTitle = (items, searchByTitle) => {
     return items?.filter((item) =>
-      item.title.toLowerCase().includes(searchByTitle.toLowerCase())
+      item.title.toLowerCase().includes(searchByTitle.toLowerCase()),
     );
   };
 
   // Filter items by category
   const filteredItemsByCategory = (items, searchByCategory) => {
     return items?.filter((item) =>
-      item.category.toLowerCase().includes(searchByCategory.toLowerCase())
+      item.category.toLowerCase().includes(searchByCategory.toLowerCase()),
     );
   };
 
@@ -99,7 +99,7 @@ export const AppProvider = ({ children }) => {
     // Filter by title and category
     if (searchType === "BY_TITLE_AND_CATEGORY") {
       return filteredItemsByCategory(items, searchByCategory).filter((item) =>
-        item.title.toLowerCase().includes(searchByTitle.toLowerCase())
+        item.title.toLowerCase().includes(searchByTitle.toLowerCase()),
       );
     }
 
@@ -117,26 +117,26 @@ export const AppProvider = ({ children }) => {
           "BY_TITLE_AND_CATEGORY",
           items,
           searchByTitle,
-          searchByCategory
-        )
+          searchByCategory,
+        ),
       );
     }
     // Filter by title
     if (searchByTitle && !searchByCategory) {
       return setFilteredItems(
-        filterBy("BY_TITLE", items, searchByTitle, searchByCategory)
+        filterBy("BY_TITLE", items, searchByTitle, searchByCategory),
       );
     }
     // Filter by category
     if (!searchByTitle && searchByCategory) {
       return setFilteredItems(
-        filterBy("BY_CATEGORY", items, searchByTitle, searchByCategory)
+        filterBy("BY_CATEGORY", items, searchByTitle, searchByCategory),
       );
     }
     // No Filter, return all items
     if (!searchByTitle && !searchByCategory) {
       return setFilteredItems(
-        filterBy(null, items, searchByTitle, searchByCategory)
+        filterBy(null, items, searchByTitle, searchByCategory),
       );
     }
   }, [items, searchByTitle, searchByCategory]);

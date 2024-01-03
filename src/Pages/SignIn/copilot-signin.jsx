@@ -14,30 +14,30 @@ function SignIn({ onLogin }) {
 
   return (
     <Layout>
-      <div className="flex items-center justify-center relative mb-4">
-        <h1 className="font-medium text-md sm:text-xl">Sign In</h1>
+      <div className="relative mb-4 flex items-center justify-center">
+        <h1 className="text-md font-medium sm:text-xl">Sign In</h1>
       </div>
       <form
         onSubmit={handleLogin}
-        className="flex flex-col justify-center items-center w-screen h-screen gap-5"
+        className="flex h-screen w-screen flex-col items-center justify-center gap-5"
       >
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
-          className="border border-gray-300 rounded-md px-2 py-1"
+          className="rounded-md border border-gray-300 px-2 py-1"
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className="border border-gray-300 rounded-md px-2 py-1"
+          className="rounded-md border border-gray-300 px-2 py-1"
         />
         <button
           type="submit"
-          className="w-48 bg-black text-white font-medium py-2 rounded-lg mt-2 hover:bg-gray-900/50 transition duration-300"
+          className="mt-2 w-48 rounded-lg bg-black py-2 font-medium text-white transition duration-300 hover:bg-gray-900/50"
         >
           Sign In
         </button>

@@ -5,9 +5,9 @@ const MyAccount = () => {
   const auth = useAuth();
   return (
     <Layout>
-      <div className="flex flex-col gap-7 items-center justify-center relative mb-4">
-        <h1 className="font-medium text-md sm:text-xl">My Account</h1>
-        <p className="font-semibold text-2xl">Welcome, {auth.user.username}</p>
+      <div className="relative mb-4 flex flex-col items-center justify-center gap-7">
+        <h1 className="text-md font-medium sm:text-xl">My Account</h1>
+        <p className="text-2xl font-semibold">Welcome, {auth.user.username}</p>
 
         {/* {console.log("username: ", auth.user.username)}
         {console.log("password: ", auth.user.password)} */}
