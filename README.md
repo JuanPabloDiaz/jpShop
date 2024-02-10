@@ -28,6 +28,11 @@ This project is a fully responsive web application that allows users to:
 - Proceed to checkout and complete their purchase.
 - Sign in and access their account (mimicking real login functionality without authentication).
 
+## Desktop Screenshots 🖥️
+
+<a href="https://jpshop.jpdiaz.dev/">
+<img src="./public/assets/images/desktop.png" width="500">
+</a>
 ## Features:
 
 - Responsive design: Jp·Shop adapts to any screen size, ensuring a consistent and enjoyable shopping experience for all users.
