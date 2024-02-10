@@ -30,8 +30,8 @@ This project is a fully responsive web application that allows users to:
 
 ## Desktop Screenshots 🖥️
 
-<a href="https://jpshop.jpdiaz.dev/">
-<img src="./public/assets/images/desktop.PNG" width="500">
+<a align='center' href="https://jpshop.jpdiaz.dev/">
+<img src="./public/assets/images/desktop.PNG">
 </a>
 
 ## Features:
