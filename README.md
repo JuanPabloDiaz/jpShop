@@ -72,6 +72,11 @@ To get started with Jp·Shop, simply clone the repository and follow the setup i
 
 We welcome contributions to Jp·Shop! Feel free to fork the repository and submit pull requests with your improvements.
 
+### Contributors
+
+<a href="https://github.com/JuanPabloDiaz/jpshop/graphs/contributors"><img src="https://contrib.rocks/image?repo=JuanPabloDiaz/jpshop" /></a><!-- Made with [contrib.rocks](https://contrib.rocks). -->
+
+
 ## License 📜
 
 Jp·Shop is licensed under the MIT License.
