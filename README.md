@@ -34,6 +34,10 @@ This project is a fully responsive web application that allows users to:
 <img src="./public/assets/images/desktop.PNG">
 </a>
 
+### Lighthouse Score 🚀
+
+![Lighthouse Score](./public/assets/images/lighthouse.png)
+
 ## Features:
 
 - Responsive design: Jp·Shop adapts to any screen size, ensuring a consistent and enjoyable shopping experience for all users.
@@ -70,12 +74,11 @@ To get started with Jp·Shop, simply clone the repository and follow the setup i
 
 ## Contribution 🤝
 
-We welcome contributions to Jp·Shop! Feel free to fork the repository and submit pull requests with your improvements.
+All contributions are welcome. Please read the [CONTRIBUTING guidelines](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 ### Contributors
 
 <a href="https://github.com/JuanPabloDiaz/jpshop/graphs/contributors"><img src="https://contrib.rocks/image?repo=JuanPabloDiaz/jpshop" /></a><!-- Made with [contrib.rocks](https://contrib.rocks). -->
-
 
 ## License 📜
 
