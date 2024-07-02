@@ -72,6 +72,16 @@ Here's a closer look at the tech stack:
 
 To get started with Jp·Shop, simply clone the repository and follow the setup instructions. You'll be up and running in no time!
 
+## Usefull Commands 🧰
+
+- Install dependencies: `$ npm install`
+- Run the project: `$ npm run dev`
+- Run before Deploy: `$ npm run build`
+- Check for errors: `$ npm run lint`
+- Preview the project: `$ npm run preview`
+- Run Prettier: `$ npm run format`
+- Run Lighthouse in local: `$ npm run lighthouse`
+
 ## Contribution 🤝
 
 All contributions are welcome. Please read the [CONTRIBUTING guidelines](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.

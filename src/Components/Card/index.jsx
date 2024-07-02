@@ -32,19 +32,19 @@ const Card = (data) => {
 
       if (productIsInCart) {
         return (
-          <div className="absolute top-0 right-0 flex justify-center items-center bg-black text-white rounded-full border-none m-2 p-1">
-            <HiCheck className="w-4 h-4" />
+          <div className="absolute right-0 top-0 m-2 flex items-center justify-center rounded-full border-none bg-black p-1 text-white">
+            <HiCheck className="h-4 w-4" />
           </div>
         );
       } else {
         return (
-          <div className="absolute top-0 right-0 flex justify-center items-center bg-white/50 hover:bg-white transition duration-300 rounded-full border-none m-2 p-1">
+          <div className="absolute right-0 top-0 m-2 flex items-center justify-center rounded-full border-none bg-white/50 p-1 transition duration-300 hover:bg-white">
             <TbShoppingCartPlus
               onClick={(event) => {
                 event.stopPropagation();
                 addProductToCart(data.data);
               }}
-              className="w-4 h-4"
+              className="h-4 w-4"
             />
           </div>
         );
@@ -55,15 +55,15 @@ const Card = (data) => {
 
   return (
     <div
-      className="bg-white border shadow-lg cursor-pointer w-56 h-60 rounded-lg  hover:scale-105 transition duration-300"
+      className="h-60 w-56 cursor-pointer rounded-lg border bg-white shadow-lg  transition duration-300 hover:scale-105"
       onClick={() => showProduct(data.data)}
     >
-      <figure className="relative mb-2 w-full h-4/5">
-        <span className="absolute bottom-0 bg-white/60 rounded-lg text-black text-xs m-2 py-0.5 px-2">
+      <figure className="relative mb-2 h-4/5 w-full">
+        <span className="absolute bottom-0 m-2 rounded-lg bg-white/60 px-2 py-0.5 text-xs text-black">
           {data.data.category}
         </span>
         <img
-          className="rounded-lg w-full h-full object-scale-down"
+          className="h-full w-full rounded-lg object-scale-down"
           src={data.data.images[0]}
           alt={data.data.title}
         />
