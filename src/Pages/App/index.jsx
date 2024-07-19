@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import { useRoutes, BrowserRouter, Navigate } from "react-router-dom";
-import { AppProvider } from "../../Context";
+import { AppProvider } from "@/Context";
 
-import { AuthProvider } from "../../Context/auth"; // AuthContext is the context that will be used to store the user's data
-import Navbar from "../../Components/Navbar";
-import CheckoutSideMenu from "../../Components/CheckoutSideMenu";
+import { AuthProvider } from "@/Context/auth"; // AuthContext is the context that will be used to store the user's data
+import Navbar from "@/Components/Navbar";
+import Footer from "@/Components/Footer";
+import CheckoutSideMenu from "@/Components/CheckoutSideMenu";
 import "./App.css";
 
 import Home from "../Home";
@@ -16,7 +17,7 @@ import SignIn from "../SignIn";
 // import Logout from "../Logout";
 
 // Implementing the Private and Public Routes:
-import { useAuth } from "../../Context/auth"; // make sure you have a useAuth hook in your auth context
+import { useAuth } from "@/Context/auth"; // make sure you have a useAuth hook in your auth context
 
 const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
@@ -112,11 +113,16 @@ const App = () => {
   return (
     <AppProvider>
       <BrowserRouter>
-        <AuthProvider>
-          <AppRoutes />
-          <Navbar />
-          <CheckoutSideMenu />
-        </AuthProvider>
+        <ma className="flex min-h-screen flex-col">
+          <AuthProvider>
+            <AppRoutes />
+            <Navbar />
+            <CheckoutSideMenu />
+            {/* Content above Footer should grow to push Footer to the bottom */}
+            <div className="flex-grow"></div>
+          </AuthProvider>
+          <Footer />
+        </ma>
       </BrowserRouter>
     </AppProvider>
   );

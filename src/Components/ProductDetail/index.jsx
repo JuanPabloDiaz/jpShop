@@ -13,7 +13,7 @@ import {
 } from "react-icons/hi";
 
 import { useContext, useState } from "react";
-import { AppContext } from "../../Context";
+import { AppContext } from "@/Context";
 
 import { BeatLoader } from "react-spinners"; // npm install react-spinners
 

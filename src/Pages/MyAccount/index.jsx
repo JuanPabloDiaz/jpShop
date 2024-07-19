@@ -1,5 +1,5 @@
-import Layout from "../../Components/Layout";
-import { useAuth } from "../../Context/auth";
+import Layout from "@/Components/Layout";
+import { useAuth } from "@/Context/auth";
 
 const MyAccount = () => {
   const auth = useAuth();
@@ -21,8 +21,8 @@ export default MyAccount;
 // *******************************************************************************
 
 // import React, { useState } from "react";
-// import Layout from "../../Components/Layout";
-// import { useAuth } from "../../Context/auth";
+// import Layout from "@/Components/Layout";
+// import { useAuth } from "@/Context/auth";
 
 // const MyAccount = () => {
 //   const auth = useAuth();

@@ -1,5 +1,5 @@
-import Layout from "../../Components/Layout";
-import { useAuth } from "../../Context/auth";
+import Layout from "@/Components/Layout";
+import { useAuth } from "@/Context/auth";
 
 const Logout = () => {
   const auth = useAuth();

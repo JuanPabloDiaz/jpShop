@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
-import { AppContext } from "../../Context";
+import { AppContext } from "@/Context";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useScrollPosition } from "../../Utils/useScrollPosition";
-import { useAuth } from "../../Context/auth";
+import { useAuth } from "@/Context/auth";
 import { useNavigate } from "react-router-dom";
 import logo from "../../../public/assets/images/logo.svg";
 

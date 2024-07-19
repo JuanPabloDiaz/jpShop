@@ -1,5 +1,5 @@
 import { HiOutlineTrash, HiPlusSm, HiMinusSm } from "react-icons/hi";
-import { AppContext } from "../../Context";
+import { AppContext } from "@/Context";
 import { useContext } from "react";
 
 const OrderCard = (props) => {

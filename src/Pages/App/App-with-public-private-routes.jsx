@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AppProvider } from "../../Context/index.jsx";
+import { AppProvider } from "@/Context/index.jsx";
 
-import { AuthProvider } from "../../Context/auth.jsx"; // AuthContext is the context that will be used to store the user's data
-import Navbar from "../../Components/Navbar/index.jsx";
-import CheckoutSideMenu from "../../Components/CheckoutSideMenu/index.jsx";
+import { AuthProvider } from "@/Context/auth.jsx"; // AuthContext is the context that will be used to store the user's data
+import Navbar from "@/Components/Navbar/index.jsx";
+import CheckoutSideMenu from "@/Components/CheckoutSideMenu/index.jsx";
 import "./App.css";
 
 import Home from "../Home/index.jsx";

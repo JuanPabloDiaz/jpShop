@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import Card from "../../Components/Card";
-import Layout from "../../Components/Layout";
-import ProductDetail from "../../Components/ProductDetail";
-import { AppContext } from "../../Context";
-import { Skeleton } from "../../Components/ui/skeleton"; // import the Skeleton component
+import Card from "@/Components/Card";
+import Layout from "@/Components/Layout";
+import ProductDetail from "@/Components/ProductDetail";
+import { AppContext } from "@/Context";
+import { Skeleton } from "@/Components/ui/skeleton"; // import the Skeleton component
 
 const Home = () => {
   const context = useContext(AppContext);

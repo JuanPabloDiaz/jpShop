@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import Layout from "../../Components/Layout";
-import OrderCard from "../../Components/OrderCard";
-import { AppContext } from "../../Context";
+import Layout from "@/Components/Layout";
+import OrderCard from "@/Components/OrderCard";
+import { AppContext } from "@/Context";
 import { HiChevronLeft } from "react-icons/hi";
 import { Link } from "react-router-dom";
 

@@ -2,16 +2,16 @@
 
 import React, { useState } from "react";
 import { useRoutes, BrowserRouter, useNavigate } from "react-router-dom";
-import { AppProvider } from "../../Context";
+import { AppProvider } from "@/Context";
 import Home from "../Home";
 import MyAccount from "../MyAccount";
 import MyOrder from "../MyOrder";
 import MyOrders from "../MyOrders";
 import NotFound from "../NotFound";
 import SignIn from "../SignIn";
-import Navbar from "../../Components/Navbar";
+import Navbar from "@/Components/Navbar";
 import "./App.css";
-import CheckoutSideMenu from "../../Components/CheckoutSideMenu";
+import CheckoutSideMenu from "@/Components/CheckoutSideMenu";
 import LogOut from "../Logout";
 
 const PrivateRoute = ({ children, user }) => {

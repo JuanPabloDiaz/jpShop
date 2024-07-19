@@ -1,5 +1,5 @@
 // import { Route, useNavigate } from "react-router-dom";
-// import { useAuth } from "../../Context/auth";
+// import { useAuth } from "@/Context/auth";
 
 // const PublicRoute = ({ children, restricted, ...rest }) => {
 //   let auth = useAuth();

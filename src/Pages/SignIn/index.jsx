@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Layout from "../../Components/Layout";
-import { useAuth } from "../../Context/auth";
+import Layout from "@/Components/Layout";
+import { useAuth } from "@/Context/auth";
 
 function SignIn() {
   const auth = useAuth(); // console.log("auth: ", auth);

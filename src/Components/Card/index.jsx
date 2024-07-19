@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../../Context";
+import { AppContext } from "@/Context";
 import { HiCheck } from "react-icons/hi";
 import { TbShoppingCartPlus } from "react-icons/tb";
 

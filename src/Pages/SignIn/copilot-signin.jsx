@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Layout from "../../Components/Layout";
+import Layout from "@/Components/Layout";
 
 function SignIn({ onLogin }) {
   const [username, setUsername] = useState("");
